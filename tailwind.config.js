@@ -10,6 +10,7 @@ export default {
         blackScale: "var(--color-blackScale)",
         bgBlack: "var(--color-bgBlack)",
         bgFooter: "var(--color-bgFooter)",
+        gray: "var(--color-gray)",
       },
     },
   },
