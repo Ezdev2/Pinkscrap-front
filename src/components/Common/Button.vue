@@ -11,9 +11,13 @@ defineProps({
 
 <template>
   <button class="primary" v-if="type === 'primary'">{{ label }}</button>
-  <button class="secondary" v-else-if="type === 'secondary'">{{ label }}</button>
+  <button class="secondary" v-else-if="type === 'secondary'">
+    {{ label }}
+  </button>
   <button class="access" v-else-if="type === 'access'"></button>
-  <button class="icon" v-else-if="type === 'icon'"></button>
+  <button class="icon" v-else-if="type === 'icon'">
+    <slot />
+  </button>
 </template>
 
 <style lang="scss" scoped>
@@ -36,5 +40,14 @@ defineProps({
   border-radius: 60px;
   color: #fff;
   background: var(--color-blackScale);
+}
+.icon {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: var(--color-black);
 }
 </style>
