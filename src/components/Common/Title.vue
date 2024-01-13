@@ -49,6 +49,7 @@ h4 {
   font-size: 42px;
   font-style: normal;
   font-weight: 700;
+  text-align: start;
   line-height: normal;
 }
 h5 {

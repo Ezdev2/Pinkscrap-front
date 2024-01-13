@@ -19,7 +19,7 @@ defineProps({
 <style lang="scss" scoped>
 .primary {
   display: flex;
-  padding: 18px 80px;
+  padding: 14px 80px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -29,7 +29,7 @@ defineProps({
 }
 .secondary {
   display: flex;
-  padding: 18px 80px;
+  padding: 14px 80px;
   justify-content: center;
   align-items: center;
   gap: 10px;
