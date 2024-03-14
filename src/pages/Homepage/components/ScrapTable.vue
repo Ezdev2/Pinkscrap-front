@@ -1,58 +1,42 @@
 <script setup>
 import Button from "@/components/Common/Button.vue";
 import Select from "@/components/Common/Select.vue";
+import { ref, watch } from "vue";
+import HomeService from "../../../service/homeService";
 
-const scrapResult = [
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
+const scrapResult = ref([]);
+const loading = ref(false);
+
+const params = {
+  category: "Restaurant",
+  city: "Antananarivo",
+  country: "Madagascar",
+};
+
+watch(
+  () => loading.value,
+  (v) => {
+    loading.value = v;
   },
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
-  },
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
-  },
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
-  },
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
-  },
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
-  },
-  {
-    nom: "John Doe",
-    phone: "555-1234",
-    email: "john@example.com",
-    socialMedia: "@johndoe",
-    link: "http://www.example.com/johndoe",
-  },
-];
+  { immediate: true, deep: true }
+);
+
+const fetchData = async () => {
+  loading.value = true;
+  try {
+    const response = await HomeService.getList(params);
+    scrapResult.value = response;
+  } catch (error) {
+    console.error("Erreur de récupération data :", error);
+    scrapResult.value = [];
+  }
+  loading.value = false;
+};
+
+const searchPlaces = () => {
+  fetchData();
+};
+
 const options = [
   {
     value: "jack",
@@ -70,7 +54,7 @@ const options = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-[80px] items-center">
+  <div class="flex flex-col gap-[80px] items-center w-[80%]">
     <div class="flex gap-[12px] items-end">
       <Select
         :options="options"
@@ -83,11 +67,12 @@ const options = [
         :placeholder="options[0].label"
       />
       <Select :options="options" label="Pays" :placeholder="options[0].label" />
-      <Button style="height: fit-content" type="icon">
+      <Button style="height: fit-content" type="icon" @click="searchPlaces">
         <img src="@/assets/icons/search.svg" alt="details" />
       </Button>
     </div>
-    <div class="bg-white rounded-[24px] flex flex-col gap-[24px] p-[42px]">
+
+    <div class="bg-white rounded-[24px] flex flex-col gap-[24px] p-[42px] w-[100%]">
       <div class="flex flex-col gap-[24px] items-start">
         <div class="flex justify-between items-center w-full">
           <p class="text-gray">Cross-channel / Last month overview</p>
@@ -100,7 +85,10 @@ const options = [
           <p class="text-start">Filtrer</p>
         </div>
       </div>
-      <div class="flex flex-col gap-[42px] items-center">
+      <div v-if="loading">
+        <img class="m-auto" src="@/assets/loading.svg" alt="loading" />
+      </div>
+      <div v-else-if="!loading && scrapResult.length" class="flex flex-col gap-[42px] items-center w-full">
         <table>
           <thead>
             <tr>
@@ -113,7 +101,17 @@ const options = [
           </thead>
           <tbody>
             <tr v-for="(item, index) in scrapResult" :key="index">
-              <td>{{ item.nom }}</td>
+              <!--Ajout de contenu de la première colonne cliquable "nom" -->
+              <td>
+                <a
+                  :href="
+                    'https://www.google.com/maps/place/?q=place_id:' +
+                    item.place_id
+                  "
+                  target="_blank"
+                  >{{ item.nom }}</a
+                >
+              </td>
               <td
                 :style="{
                   'background-color': index % 2 === 0 ? '#f2f2f2' : 'white',
@@ -132,6 +130,9 @@ const options = [
           type="primary"
           label="Télécharger 1800 contacts"
         />
+      </div>
+      <div v-else-if="!loading && !scrapResult.length">
+        <img class="m-auto w-[500px]" src="@/assets/no-data.svg" alt="not found" />
       </div>
     </div>
   </div>
