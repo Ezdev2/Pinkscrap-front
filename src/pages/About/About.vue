@@ -9,15 +9,15 @@ let isOpenFaq = ref(1);
 </script>
 
 <template>
-  <div>
+  <div class="w-full overflow-x-hidden">
     <!-- Hero Section Start -->
-    <div class="container mx-auto px-5 overflow-x-hidden">
+    <div class="container mx-auto px-8">
       <section
-        class="grid grid-cols-none lg:grid-cols-2 pb-16 pt-8 items-center"
+        class="grid grid-cols-none lg:grid-cols-2 items-center"
       >
         <div class="lg:w-5/6 order-2 lg:order-none">
           <h1
-            class="text-4xl xl:text-5xl font-bold font-theme-heading text-center lg:text-left"
+            class="text-4xl xl:text-5xl font-bold text-center lg:text-left"
           >
             A Simple Bookmark Manager
           </h1>
@@ -49,7 +49,7 @@ let isOpenFaq = ref(1);
     <!-- Hero Section End -->
 
     <!-- Features Section Start -->
-    <div id="help" class="container mx-auto px-5">
+    <div id="help" class="container mx-auto px-8">
       <section class="py-16">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -132,7 +132,7 @@ let isOpenFaq = ref(1);
     <!-- Features Section End -->
 
     <!-- Download Section Start -->
-    <div id="download-section" class="container mx-auto px-5 md:w-4/5">
+    <div id="download-section" class="container mx-auto px-8 md:w-4/5">
       <section class="py-16 pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -192,7 +192,7 @@ let isOpenFaq = ref(1);
     <!-- Download Section End -->
 
     <!-- Questions Section Start -->
-    <div id="faq" class="container mx-auto px-5 md:w-4/5">
+    <div id="faq" class="container mx-auto px-8 md:w-4/5">
       <section class="py-16 pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2

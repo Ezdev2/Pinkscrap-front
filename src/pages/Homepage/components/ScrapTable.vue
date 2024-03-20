@@ -255,7 +255,7 @@ const fetchData = async () => {
         v-else-if="!loading && scrapResult.length"
         class="flex flex-col gap-[42px] items-center w-full"
       >
-        <table>
+        <table class="table-container">
           <thead>
             <tr>
               <th>Nom</th>
@@ -266,8 +266,7 @@ const fetchData = async () => {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in scrapResult" :key="index">
-              <!--Ajout de contenu de la première colonne cliquable "nom" -->
+            <tr v-for="(item, index) in scrapResult.slice(0, 20)" :key="index">
               <td>
                 <a
                   :href="
@@ -370,5 +369,23 @@ td {
 
 th {
   // background-color: #f2f2f2;
+}
+
+.table-container {
+  position: relative;
+}
+.table-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  backdrop-filter: blur(3px); /* Ajustez la valeur pour contrôler le flou */
 }
 </style>
