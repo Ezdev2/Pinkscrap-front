@@ -144,11 +144,10 @@ h1 {
 }
 .colonne {
   position: relative;
-  padding: 64px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  gap: 24px;
+  gap: 80px;
   width: 60%;
   text-align: justify;
 }
