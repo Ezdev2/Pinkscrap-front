@@ -15,7 +15,7 @@ const SignUp = () => {
     <div class="colonne">
       <a class="flex gap-[12px] items-center" href="/" @click="HomeBtn">
         <img src="../../assets/chevron.svg" alt="back" />
-        <span class="back-text">vers la page home</span>
+        <span class="back-text">Revenir à la page d'accueil</span>
       </a>
       <div class="color">
         <div class="division">
@@ -27,20 +27,20 @@ const SignUp = () => {
             <input type="password" placeholder="Mot de passe" />
           </div>
           <p class="span-compte">
-            Vous n'avez pas un compte? <a @click="SignUp">Inscrire</a>
+            Vous n'avez pas un compte? <a @click="SignUp">Inscrivez-vous ici</a>
           </p>
           <button>Se connecter</button>
         </div>
       </div>
     </div>
-    <div class="colonne bg-img">
+    <div class="colonne-right bg-img">
       <div class="color1">
-        <h1 class="titlecol2">Lorem ipsum dolor sit amet.</h1>
-        <p class="param">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia ad
-          illo perspiciatis, laboriosam dignissimos itaque. Quidem assumenda
-          consequatur numquam tenetur asperiores, voluptates, dolorum
-          praesentium dignissimos non placeat aut facere fugiat?
+        <h1 class="titlecol2">Bienvenue sur PINKSCRAP !</h1>
+        <p>
+          Optimisez votre stratégie de prospection en accédant à une sélection
+          exhaustive de leads B2B, extraits méticuleusement de la base de
+          données GMap, afin de cibler efficacement vos clients potentiels et
+          renforcer votre présence sur le marché.
         </p>
       </div>
       <div class="bg-col">
@@ -71,6 +71,9 @@ const SignUp = () => {
 }
 .color1 {
   width: 90%;
+  p {
+    color: #fff;
+  }
 }
 .row {
   display: flex;
@@ -126,12 +129,19 @@ h1 {
 }
 .colonne {
   position: relative;
-  padding: 44px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 50%;
-  text-align: left;
+  gap: 80px;
+  width: 60%;
+  text-align: justify;
+}
+.colonne-right {
+  position: relative;
+  display: flex;
+  width: 40%;
+  text-align: start;
+  padding: 80px;
 }
 .param {
   padding: 5px 0;
@@ -142,7 +152,9 @@ h1 {
   margin-top: -4px;
 }
 .span-compte {
+  // background: red;
   padding: 20px 0;
+  color: #333;
   display: block;
 }
 
