@@ -6,7 +6,7 @@ import DetailSection from "./components/Details.vue";
 import Demo from "./components/Demo.vue";
 import Feedback from "./components/Feedback.vue";
 import CallToAction from "./components/CallToAction.vue";
-import FooterSection from "./components/Footer.vue";
+// import FooterSection from "../../components/Display/Footer.vue";
 import Witness from "./components/Witness.vue";
 </script>
 
@@ -21,7 +21,7 @@ import Witness from "./components/Witness.vue";
     <div class="flex flex-col gap-[80px] bg-bgBlack w-full px-[122px] py-[80px]">
       <Feedback />
       <CallToAction />
-      <FooterSection />
+      <!-- <FooterSection /> -->
     </div>
 
     <div class="home__bg">
