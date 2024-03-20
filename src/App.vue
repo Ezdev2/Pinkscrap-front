@@ -1,17 +1,20 @@
 <script setup>
 import Navbar from "./components/Display/Navbar.vue";
 import Footer from "./components/Display/Footer.vue";
+import { onBeforeRouteUpdate, useRouter } from 'vue-router';
+
+const route = useRouter();
 </script>
 
 <template>
   <div>
-    <Navbar />
+    <Navbar  v-if="!['/register', '/login'].includes($route.path)" />
     <router-view v-slot="{ Component }">
       <transition appear name="fade-page" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
-    <Footer />
+    <Footer v-if="!['/register', '/login'].includes($route.path)" />
   </div>
 </template>
 
