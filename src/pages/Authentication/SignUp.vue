@@ -41,14 +41,14 @@ const HomeBtn = () => {
         </div>
       </div>
     </div>
-    <div class="colonne bg-img">
+    <div class="colonne-right bg-img">
       <div class="color1">
-        <h1 class="titlecol2">Lorem ipsum dolor sit amet.</h1>
+        <h1 class="titlecol2">Bienvenue sur PINKSCRAP !</h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia ad illo
-          perspiciatis, laboriosam dignissimos itaque. Quidem assumenda consequatur
-          numquam tenetur asperiores, voluptates, dolorum praesentium dignissimos non
-          placeat aut facere fugiat?
+          Optimisez votre stratégie de prospection en accédant à une sélection
+          exhaustive de leads B2B, extraits méticuleusement de la base de
+          données GMap, afin de cibler efficacement vos clients potentiels et
+          renforcer votre présence sur le marché.
         </p>
       </div>
       <div class="bg-col">
@@ -65,7 +65,7 @@ const HomeBtn = () => {
 .bg-col img {
   // background-color: red;
   position: absolute;
-  bottom: -220px;
+  bottom: -120px;
   right: -30px;
 }
 .color1,
@@ -127,15 +127,20 @@ h1 {
 }
 .colonne {
   position: relative;
-  padding: 44px;
+  padding: 64px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   gap: 24px;
-  width: 50%;
-  // min-height: 1px;
-  // height: 820px;
-  // border: 1px solid black;
+  width: 60%;
   text-align: justify;
+}
+.colonne-right {
+  position: relative;
+  display: flex;
+  width: 40%;
+  text-align: start;
+  padding: 122px;
 }
 p {
   // background-color: red;
