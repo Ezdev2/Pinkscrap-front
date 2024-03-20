@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import ASelect from 'ant-design-vue/lib/select';
 
+const emit = defineEmits(["onChange"]);
 
 defineProps({
   options: {
@@ -27,9 +28,14 @@ defineProps({
   placeholder: {
     type: String,
   },
+  disabled: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const handleChange = (value) => {
+  emit("onChange", value);
   console.log(`selected ${value}`);
 };
 const handleBlur = () => {
@@ -45,9 +51,10 @@ const value = ref(undefined);
 </script>
 <template>
   <div class="flex flex-col items-start">
-    <p>{{ label }}</p>
+    <p class="font-bold text-lg">{{ label }}</p>
     <a-select
       v-model:value="value"
+      :disabled="disabled"
       show-search
       :placeholder="placeholder"
       style="width: 200px"

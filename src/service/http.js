@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const MAX_TIMEOUT = 200000;
 
-axios.defaults.baseURL = "https://pinkscrap.onrender.com/api/pink-maps";
+// axios.defaults.baseURL = "https://pinkscrap.onrender.com/api/pink-maps";
 axios.defaults.timeout = MAX_TIMEOUT;
 
 // à decommenter si la consommation de l'API requiert une authentification

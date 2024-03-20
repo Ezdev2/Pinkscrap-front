@@ -1,20 +1,20 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  --color-primary: #5242FF;
-  --color-primaryScale: #7366FE;
-  --color-black: #272D4E;
+  --color-primary: #5242ff;
+  --color-primaryScale: #7366fe;
+  --color-black: #272d4e;
   --color-blackScale: #333333;
   --color-bgBlack: #191617;
-  --color-bgFooter: #1D1D1D;
- --color-gray: #808192;
-   /* --color-hr: #e7e7e7;
+  --color-bgFooter: #1d1d1d;
+  --color-gray: #808192;
+  /* --color-hr: #e7e7e7;
   --color-stroke: #d3d3d3;
   --color-red: #ff3d3d;
   --color-text-gray: #999999;
@@ -46,7 +46,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #EEF5FF;
+  background-color: #eef5ff;
 }
 
 h1 {
@@ -96,4 +96,39 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.ant-select-show-search:where(
+    .css-dev-only-do-not-override-b92jn9
+  ).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  height: 43px;
+}
+:where(.css-dev-only-do-not-override-b92jn9).ant-select
+  .ant-select-selection-item {
+  flex: 1;
+  font-weight: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: start;
+  font-size: medium;
+  margin: 5px;
+}
+:where(.css-dev-only-do-not-override-b92jn9).ant-select
+  .ant-select-selection-placeholder {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+  color: rgba(0, 0, 0, 0.25);
+  margin: 5px;
+  pointer-events: none;
+}
+.ant-select-show-search:where(
+    .css-dev-only-do-not-override-b92jn9
+  ).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector
+  input {
+  margin: 5px;
 }
