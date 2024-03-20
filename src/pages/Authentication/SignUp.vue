@@ -6,7 +6,7 @@ const HomeBtn = () => {
   router.push("/");
 };
 const Login = () => {
-  router.push("/Login");
+  router.push("/login");
 };
 </script>
 
