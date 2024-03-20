@@ -9,15 +9,90 @@ let isOpenFaq = ref(1);
 </script>
 
 <template>
-  <div>
+  <div class="w-full overflow-x-hidden">
+    <div>
+      <!-- floating assets -->
+      <img
+        class="floating-bubble-1 absolute right-0 top-0 -z-[1]"
+        src="https://themewagon.github.io/pinwheel/images/floating-bubble-1.svg"
+        alt=""
+      />
+      <img
+        class="floating-bubble-2 absolute left-0 top-[387px] -z-[1]"
+        src="https://themewagon.github.io/pinwheel/images/floating-bubble-2.svg"
+        alt=""
+      />
+      <img
+        class="floating-bubble-3 absolute right-0 top-[605px] -z-[1]"
+        src="https://themewagon.github.io/pinwheel/images/floating-bubble-3.svg"
+        alt=""
+      />
+      <!-- ./end floating assets -->
+
+      <!-- Common hero -->
+      <section class="page-hero py-16">
+        <div class="container">
+          <div class="text-center">
+            <ul
+              class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 py-2"
+            >
+              <li class="leading-none text-bgBlack">
+                <a class="inline-flex items-center text-primary" href="/">
+                  <svg
+                    class="mr-1.5"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.1769 15.0588H10.3533V9.41178H5.64744V15.0588H2.82391V6.58825H1.88274V16H14.118V6.58825H13.1769V15.0588ZM6.58862 15.0588V10.353H9.41215V15.0588H6.58862ZM15.8084 6.09225L15.2512 6.85178L8.00038 1.52472L0.749559 6.8499L0.192383 6.09131L8.00038 0.357666L15.8084 6.09225Z"
+                      fill="black"
+                    />
+                  </svg>
+                  <span class="text-sm leading-none">Home</span>
+                </a>
+              </li>
+              <li class="leading-none text-bgBlack">
+                <span class="text-sm leading-none">/ About Us</span>
+              </li>
+            </ul>
+          </div>
+          <div class="page-hero-content mx-auto max-w-[768px] text-center">
+            <h1 class="mb-5 mt-8">About our company</h1>
+            <p>
+              Donec sollicitudin molestie malesda. Donec sollitudin molestie
+              malesuada. Mauris pellentesque nec, egestas non nisi. Cras
+              ultricies ligula sed magna dictum porta. Lorem
+            </p>
+            <div class="mt-11 justify-center sm:flex">
+              <!-- <a class="btn btn-primary m-3 block sm:inline-block" href="#"
+          >Download The Theme</a
+        > -->
+              <Button
+                style="width: fit-content"
+                type="primary"
+                label="Download The Theme"
+              />
+              <a
+                class="btn btn-outline-primary m-3 block min-w-[160px] sm:inline-block"
+                href="#"
+                >Learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
     <!-- Hero Section Start -->
-    <div class="container mx-auto px-5 overflow-x-hidden">
+    <!-- <div class="container mx-auto px-8">
       <section
-        class="grid grid-cols-none lg:grid-cols-2 pb-16 pt-8 items-center"
+        class="grid grid-cols-none lg:grid-cols-2 items-center"
       >
         <div class="lg:w-5/6 order-2 lg:order-none">
           <h1
-            class="text-4xl xl:text-5xl font-bold font-theme-heading text-center lg:text-left"
+            class="text-4xl xl:text-5xl font-bold text-center lg:text-left"
           >
             A Simple Bookmark Manager
           </h1>
@@ -45,11 +120,11 @@ let isOpenFaq = ref(1);
           ></div>
         </div>
       </section>
-    </div>
+    </div> -->
     <!-- Hero Section End -->
 
     <!-- Features Section Start -->
-    <div id="help" class="container mx-auto px-5">
+    <div id="help" class="container mx-auto px-8">
       <section class="py-16">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -132,7 +207,7 @@ let isOpenFaq = ref(1);
     <!-- Features Section End -->
 
     <!-- Download Section Start -->
-    <div id="download-section" class="container mx-auto px-5 md:w-4/5">
+    <div id="download-section" class="container mx-auto px-8 md:w-4/5">
       <section class="py-16 pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -192,7 +267,7 @@ let isOpenFaq = ref(1);
     <!-- Download Section End -->
 
     <!-- Questions Section Start -->
-    <div id="faq" class="container mx-auto px-5 md:w-4/5">
+    <div id="faq" class="container mx-auto px-8 md:w-4/5">
       <section class="py-16 pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -209,14 +284,14 @@ let isOpenFaq = ref(1);
         </div>
 
         <div class="mt-10 w-full lg:w-3/5 mx-auto">
-          <ul class="shadow-lg">
+          <ul class="faq-section">
             <template v-for="(faq, index) in faqs" :key="faq.id">
               <li
                 @click="isOpenFaq = faq.id"
                 :class="isOpenFaq === faq.id ? 'text-theme-secondary' : ''"
-                class="font-theme-content font-medium text-xl cursor-pointer hover:text-theme-secondary py-5 flex justify-between items-center transition duration-200 bg-slate-100 px-6"
+                class="font-theme-content font-medium text-xl cursor-pointer hover:text-theme-secondary py-5 flex justify-between items-center transition duration-200  px-6"
               >
-                <a href="#">{{ faq.title }}</a>
+                <a class="faq-title" href="#">{{ faq.title }}</a>
                 <svg
                   :class="
                     isOpenFaq === faq.id
@@ -238,7 +313,7 @@ let isOpenFaq = ref(1);
               </li>
               <p
                 v-show="isOpenFaq === faq.id"
-                class="bg-slate-50 px-6 font-theme-content text-md lg:text-lg py-5 text-gray-500 text-justify"
+                class="px-6 font-theme-content text-md lg:text-lg py-5 text-gray-500 text-justify rounded-md"
               >
                 {{ faq.description }}
               </p>
@@ -251,4 +326,15 @@ let isOpenFaq = ref(1);
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.faq-section {
+  background: #fff !important;
+  padding: 16px;
+  border-radius: 12px;
+}
+.faq-title{
+  font-size: medium;
+  color: #333;
+  font-weight: 800;
+}
+</style>
