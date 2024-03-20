@@ -30,6 +30,9 @@ defineProps({
   border-radius: 60px;
   color: #fff;
   background: var(--color-primary);
+  &:hover {
+    background: var(--color-bgBlack);
+  }
 }
 .secondary {
   display: flex;
@@ -40,6 +43,9 @@ defineProps({
   border-radius: 60px;
   color: #fff;
   background: var(--color-blackScale);
+  &:hover {
+    background: var(--color-bgBlack);
+  }
 }
 .icon {
   display: flex;

@@ -64,7 +64,7 @@ const logIn = () => {
       <a class="nav-list" href="/about">A propos</a>
       <a class="nav-list" href="/pricing">Tarifs</a>
       <a class="nav-list" href="/about#faq">FAQ</a>
-      <a class="nav-list" href="/about#help">Aide</a>
+      <a class="nav-list" href="/about#help">Comment ça marche</a>
     </div>
     <div class="flex flex-row items-center gap-6">
       <button
@@ -89,7 +89,7 @@ const logIn = () => {
         Se connecter
       </button>
       <button
-        class="flex items-center justify-center px-6 py-3.5 bg-[#7166FF] text-white"
+        class="flex items-center justify-center px-6 py-3.5 bg-[#7166FF] text-white hover:bg-black focus:bg-black focus:outline-none"
         @click="signUp"
       >
         Créer un compte

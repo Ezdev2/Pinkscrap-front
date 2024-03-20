@@ -3,50 +3,96 @@ import { features, downloads, faqs } from "./data/data.js";
 import { ref } from "vue";
 import LinkButton from "../../components/Common/LinkButton.vue";
 import Button from "@/components/Common/Button.vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 let isOpen = ref(1);
 let isOpenFaq = ref(1);
+
+const gotoHomePage = () => {
+  router.push("/");
+};
 </script>
 
 <template>
-  <div class="w-full overflow-x-hidden">
-    <!-- Hero Section Start -->
-    <div class="container mx-auto px-8">
-      <section
-        class="grid grid-cols-none lg:grid-cols-2 items-center"
-      >
-        <div class="lg:w-5/6 order-2 lg:order-none">
-          <h1
-            class="text-4xl xl:text-5xl font-bold text-center lg:text-left"
+  <div class="w-full overflow-x-hidden flex flex-col items-center gap-[80px]">
+    <div class="flex flex-col items-center">
+      <!-- floating assets -->
+      <img
+        class="floating-bubble-1 absolute right-0 top-0 -z-[1]"
+        src="https://themewagon.github.io/pinwheel/images/floating-bubble-1.svg"
+        alt=""
+      />
+      <img
+        class="floating-bubble-2 absolute left-0 top-[387px] -z-[1]"
+        src="https://themewagon.github.io/pinwheel/images/floating-bubble-2.svg"
+        alt=""
+      />
+      <img
+        class="floating-bubble-3 absolute right-0 top-[605px] -z-[1]"
+        src="https://themewagon.github.io/pinwheel/images/floating-bubble-3.svg"
+        alt=""
+      />
+      <!-- ./end floating assets -->
+
+      <!-- Common hero -->
+      <div class="container h-[70vh] flex flex-col items-center justify-center">
+        <div class="text-center">
+          <ul
+            class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 py-2"
           >
-            A Simple Bookmark Manager
-          </h1>
-          <p
-            class="lg:text-xl mt-10 font-theme-content text-theme-grayish-blue text-center lg:text-left"
-          >
-            A clean and simple interface to organize your favourite websites.
-            Open a new browser tab and see your sites load instantly. Try it for
-            free.
+            <li class="leading-none text-bgBlack">
+              <a class="inline-flex items-center text-primary" href="/">
+                <svg
+                  class="mr-1.5"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.1769 15.0588H10.3533V9.41178H5.64744V15.0588H2.82391V6.58825H1.88274V16H14.118V6.58825H13.1769V15.0588ZM6.58862 15.0588V10.353H9.41215V15.0588H6.58862ZM15.8084 6.09225L15.2512 6.85178L8.00038 1.52472L0.749559 6.8499L0.192383 6.09131L8.00038 0.357666L15.8084 6.09225Z"
+                    fill="black"
+                  />
+                </svg>
+                <span class="text-sm leading-none">Home</span>
+              </a>
+            </li>
+            <li class="leading-none text-bgBlack">
+              <span class="text-sm leading-none">/ A propos</span>
+            </li>
+          </ul>
+        </div>
+        <div class="page-hero-content mx-auto max-w-[768px] text-center">
+          <h1 class="mb-5 mt-8">Qui sommes-nous ?</h1>
+          <p>
+            Nous sommes une équipe dévouée spécialisée dans la fourniture de
+            solutions de génération de leads B2B innovantes. Notre service
+            phare, la téléchargement de leads B2B de la base GMap, offre aux
+            entreprises une précieuse opportunité d'accéder à un vaste réservoir
+            de prospects qualifiés directement depuis la base de données de
+            Google Maps.
           </p>
-          <div class="flex justify-center lg:justify-start mt-10">
+          <div class="mt-11 justify-center sm:flex">
+            <!-- <a class="btn btn-primary m-3 block sm:inline-block" href="#"
+          >Download The Theme</a
+        > -->
             <Button
               style="width: fit-content"
               type="primary"
-              label="Get it on Chrome"
+              label="Rechercher maintenant"
+              @click="gotoHomePage"
             />
+            <a
+              class="btn btn-outline-primary m-3 block min-w-[160px] sm:inline-block"
+              href="#help"
+              >En savoir plus</a
+            >
           </div>
         </div>
-        <div
-          class="relative order-1 lg:order-none mb-20 lg:mt-0 lg:mb-0 lg:-mr-10"
-        >
-          <img class="z-10 w-full" src="@/assets/illustration-hero.svg" />
-          <div
-            class="-z-10 bg-theme-primary h-52 w-full sm:h-80 sm:w-full rounded-l-full absolute -right-28 md:-right-48 -bottom-8"
-          ></div>
-        </div>
-      </section>
+      </div>
     </div>
-    <!-- Hero Section End -->
 
     <!-- Features Section Start -->
     <div id="help" class="container mx-auto px-8">
@@ -55,14 +101,13 @@ let isOpenFaq = ref(1);
           <h2
             class="text-3xl md:text-4xl font-semibold font-theme-heading text-center"
           >
-            Features
+            Comment ça marche ?
           </h2>
           <p
             class="text-theme-grayish-blue text-center mt-7 font-theme-content text-lg"
           >
-            Our aim is to make it quick and easy for you to access your
-            favourite websites. Your bookmarks sync between your devices so you
-            can access them on the go.
+            Suivez ces simples étapes pour obtenir votre liste en quelques
+            secondes seulement :
           </p>
         </div>
 
@@ -119,7 +164,8 @@ let isOpenFaq = ref(1);
                   <Button
                     style="width: fit-content"
                     type="secondary"
-                    label="More info"
+                    label="Essayer maintenant"
+                    @click="gotoHomePage"
                   />
                 </div>
               </div>
@@ -138,13 +184,15 @@ let isOpenFaq = ref(1);
           <h2
             class="text-3xl md:text-4xl font-theme-heading font-medium text-center"
           >
-            Download the extension
+            Nos valeurs
           </h2>
           <p
             class="text-theme-grayish-blue text-center text-lg font-theme-content mt-7"
           >
-            We've got more browsers in pipeline. Please do let us know if you've
-            got a favourite you'd like us to prioritize.
+            Nos valeurs d'efficacité, d'excellence, d'innovation, de
+            collaboration et d'engagement envers le client sont le fondement de
+            notre entreprise, guidant chacune de nos actions vers l'atteinte de
+            notre mission et de notre vision.
           </p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -182,7 +230,8 @@ let isOpenFaq = ref(1);
               <Button
                 style="width: fit-content"
                 type="primary"
-                label="More info"
+                label="Commencer"
+                @click="gotoHomePage"
               />
             </div>
           </div>
@@ -198,25 +247,26 @@ let isOpenFaq = ref(1);
           <h2
             class="text-3xl md:text-4xl font-theme-heading font-medium text-center"
           >
-            Frequently Asked Questions
+            FAQ
           </h2>
           <p
             class="text-theme-grayish-blue text-center mt-7 font-theme-content text-lg"
           >
-            Here are some of out FAQs. If you have any other quesitons you'd
-            like answered please feel free to email us.
+            Voici quelques-unes de nos FAQ. Si vous avez d'autres questions
+            auxquelles vous aimeriez répondre, n'hésitez pas à nous envoyer un
+            e-mail.
           </p>
         </div>
 
         <div class="mt-10 w-full lg:w-3/5 mx-auto">
-          <ul class="shadow-lg">
+          <ul class="faq-section">
             <template v-for="(faq, index) in faqs" :key="faq.id">
               <li
                 @click="isOpenFaq = faq.id"
                 :class="isOpenFaq === faq.id ? 'text-theme-secondary' : ''"
-                class="font-theme-content font-medium text-xl cursor-pointer hover:text-theme-secondary py-5 flex justify-between items-center transition duration-200 bg-slate-100 px-6"
+                class="font-theme-content font-medium text-xl cursor-pointer hover:text-theme-secondary py-5 flex justify-between items-center transition duration-200 px-6"
               >
-                <a href="#">{{ faq.title }}</a>
+                <a class="faq-title" href="#">{{ faq.title }}</a>
                 <svg
                   :class="
                     isOpenFaq === faq.id
@@ -238,7 +288,7 @@ let isOpenFaq = ref(1);
               </li>
               <p
                 v-show="isOpenFaq === faq.id"
-                class="bg-slate-50 px-6 font-theme-content text-md lg:text-lg py-5 text-gray-500 text-justify"
+                class="px-6 font-theme-content text-md lg:text-lg py-5 text-gray-500 text-justify rounded-md"
               >
                 {{ faq.description }}
               </p>
@@ -251,4 +301,15 @@ let isOpenFaq = ref(1);
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.faq-section {
+  background: #fff !important;
+  padding: 16px;
+  border-radius: 12px;
+}
+.faq-title {
+  font-size: medium;
+  color: #333;
+  font-weight: 800;
+}
+</style>
