@@ -3,10 +3,10 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const signUp = () => {
-  router.push("/inscription");
+  router.push("/register");
 };
 const logIn = () => {
-  router.push("/connexion");
+  router.push("/login");
 };
 </script>
 
@@ -61,10 +61,10 @@ const logIn = () => {
       </a>
     </div>
     <div class="flex flex-row items-center gap-[84px]">
-      <p>A propos</p>
-      <p>Tarifs</p>
-      <p>FAQ</p>
-      <p>Aide</p>
+      <a class="nav-list" href="/about">A propos</a>
+      <a class="nav-list" href="/pricing">Tarifs</a>
+      <a class="nav-list" href="/about#faq">FAQ</a>
+      <a class="nav-list" href="/about#help">Aide</a>
     </div>
     <div class="flex flex-row items-center gap-6">
       <button
@@ -98,4 +98,11 @@ const logIn = () => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.nav-list {
+  color: var(--color-bgBlack);
+  &:hover {
+    color: var(--color-primaryScale);
+  }
+}
+</style>
