@@ -9,71 +9,77 @@ const HomeBtn = () => {
 
 <template>
   <div class="row">
-        <div class="colonne">
-          <a href="#" @click="HomeBtn">vers la page home</a>
-          <div class="color">
-            <h1>Sing Up</h1>
-            <div class="d-block">
-              <label>Prenom *</label>
-              <input type="text" placeholder="Prenom" />
-              <label>Nom *</label>
-              <input type="text" placeholder="Nom" />
-              <label>Adresse email *</label>
-              <input type="email" placeholder="Adresse email" />
-              <label>Numero Telephone *</label>
-              <input type="tel" placeholder="Numero Telephone" />
-              <label>Entreprise *</label>
-              <input type="text" placeholder="Entreprise" />
-              <label>Comment Allez-vous</label>
-              <select>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </select>
-              <label>Mot de passe *</label>
-              <input type="password" placeholder="Mot de passe" />
-              <label>Confirmation *</label>
-              <input type="password" placeholder="Confirmation" />
-              <button>s'inscrire</button>
-            </div>
-          </div>
-        </div>
-        <div class="colonne bg-img">
-          <div class="color1">
-            <h1 class="titlecol2">Lorem ipsum dolor sit amet.</h1>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia ad illo perspiciatis, laboriosam dignissimos itaque. Quidem assumenda consequatur numquam tenetur asperiores, voluptates, dolorum praesentium dignissimos non placeat aut facere fugiat?
-            </p>
-          </div>
-          <div class="bg-col">
-            <img :src="image" alt="Image" />
-          </div>
+    <div class="colonne">
+      <a class="flex gap-[12px] items-center" href="/" @click="HomeBtn">
+        <img src="../../assets/chevron.svg" alt="back" />
+        <span class="back-text">vers la page home</span>
+      </a>
+      <div class="color">
+        <h1>Inscription</h1>
+        <div class="d-block">
+          <label>Prenom *</label>
+          <input type="text" placeholder="Prenom" />
+          <label>Nom *</label>
+          <input type="text" placeholder="Nom" />
+          <label>Adresse email *</label>
+          <input type="email" placeholder="Adresse email" />
+          <label>Numero Telephone *</label>
+          <input type="tel" placeholder="Numero Telephone" />
+          <label>Entreprise *</label>
+          <input type="text" placeholder="Entreprise" />
+          <label>Comment Allez-vous</label>
+          <select>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+          <label>Mot de passe *</label>
+          <input type="password" placeholder="Mot de passe" />
+          <label>Confirmation *</label>
+          <input type="password" placeholder="Confirmation" />
+          <button>s'inscrire</button>
         </div>
       </div>
+    </div>
+    <div class="colonne bg-img">
+      <div class="color1">
+        <h1 class="titlecol2">Lorem ipsum dolor sit amet.</h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia ad illo
+          perspiciatis, laboriosam dignissimos itaque. Quidem assumenda consequatur
+          numquam tenetur asperiores, voluptates, dolorum praesentium dignissimos non
+          placeat aut facere fugiat?
+        </p>
+      </div>
+      <div class="bg-col">
+        <img :src="image" alt="Image" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .bg-img {
   background: url("../../assets/bg-log.svg");
 }
-img {
+.bg-col img {
   // background-color: red;
   position: absolute;
-  bottom: -80px;
-  right: -60px;
+  bottom: -220px;
+  right: -30px;
 }
 .color1,
 .color {
-  width: 80%;
+  // width: 80%;
   // background-color: blue;
-  margin: 20px auto;
+  // margin: 20px auto;
 }
-.color{
+.color {
   overflow: scroll;
-    scrollbar-width: none;
-    height: 95vh;
+  scrollbar-width: none;
+  height: 80vh;
 }
-.color1{
+.color1 {
   width: 90%;
 }
 .d-block {
@@ -82,9 +88,9 @@ img {
 }
 .row {
   display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    overflow: hidden;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: hidden;
 }
 label {
   font-size: 16px;
@@ -121,11 +127,13 @@ h1 {
 }
 .colonne {
   position: relative;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   width: 50%;
-  min-height: 1px;
-  height: 820px;
-  padding-right: 15px;
-  padding-left: 15px;
+  // min-height: 1px;
+  // height: 820px;
   // border: 1px solid black;
   text-align: justify;
 }
@@ -133,6 +141,10 @@ p {
   // background-color: red;
   padding: 5px 0;
   color: #fff;
+}
+.back-text {
+  line-height: 0px;
+  margin-top: -4px;
 }
 
 @media (max-width: 992px) {
