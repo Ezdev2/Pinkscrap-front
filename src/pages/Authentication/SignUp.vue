@@ -5,6 +5,9 @@ const router = useRouter();
 const HomeBtn = () => {
   router.push("/");
 };
+const Login = () => {
+  router.push("/Login");
+};
 </script>
 
 <template>
@@ -12,32 +15,39 @@ const HomeBtn = () => {
     <div class="colonne">
       <a class="flex gap-[12px] items-center" href="/" @click="HomeBtn">
         <img src="../../assets/chevron.svg" alt="back" />
-        <span class="back-text">vers la page home</span>
+        <span class="back-text">Revenir à la page d'accueil</span>
       </a>
       <div class="color">
         <h1>Inscription</h1>
         <div class="d-block">
-          <label>Prenom *</label>
-          <input type="text" placeholder="Prenom" />
-          <label>Nom *</label>
-          <input type="text" placeholder="Nom" />
-          <label>Adresse email *</label>
-          <input type="email" placeholder="Adresse email" />
-          <label>Numero Telephone *</label>
-          <input type="tel" placeholder="Numero Telephone" />
-          <label>Entreprise *</label>
-          <input type="text" placeholder="Entreprise" />
-          <label>Comment Allez-vous</label>
-          <select>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-          <label>Mot de passe *</label>
-          <input type="password" placeholder="Mot de passe" />
-          <label>Confirmation *</label>
-          <input type="password" placeholder="Confirmation" />
-          <button>s'inscrire</button>
+          <div class="div-inp">
+            <label>Prenom *</label>
+            <input type="text" placeholder="Prenom" />
+            <label>Nom *</label>
+            <input type="text" placeholder="Nom" />
+            <label>Adresse email *</label>
+            <input type="email" placeholder="Adresse email" />
+            <label>Numero Telephone *</label>
+            <input type="tel" placeholder="Numero Telephone" />
+          </div>
+          <div class="div-inp">
+            <label>Entreprise *</label>
+            <input type="text" placeholder="Entreprise" />
+            <label>Comment Allez-vous</label>
+            <select>
+              <option value="option1">Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+            <label>Mot de passe *</label>
+            <input type="password" placeholder="Mot de passe" />
+            <label>Confirmation *</label>
+            <input type="password" placeholder="Confirmation" />
+          </div>
+        </div>
+        <div class="division">
+          <p class="span-compte">Vous avez déjà un compte? <a @click="Login">Connexion</a></p>
+          <button>S'inscrire</button>
         </div>
       </div>
     </div>
@@ -68,23 +78,22 @@ const HomeBtn = () => {
   bottom: -120px;
   right: -30px;
 }
-.color1,
-.color {
-  // width: 80%;
-  // background-color: blue;
-  // margin: 20px auto;
-}
-.color {
-  overflow: scroll;
-  scrollbar-width: none;
-  height: 80vh;
-}
-.color1 {
-  width: 90%;
+.div-inp {
+  width: 49%;
 }
 .d-block {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  // background: aqua;
+  width: 100%;
+}
+// .color {
+//   overflow: scroll;
+//   scrollbar-width: none;
+//   height: 80vh;
+// }
+.color1 {
+  width: 90%;
 }
 .row {
   display: flex;
@@ -92,18 +101,32 @@ const HomeBtn = () => {
   height: 100vh;
   overflow: hidden;
 }
+a{
+  cursor: pointer;
+}
 label {
   font-size: 16px;
   font-weight: 500;
   padding-bottom: 5px;
   padding-top: 10px;
+  display: block;
+  width: 100%;
+  // background: red;
+  margin-top: 10px;
+}
+.division {
+  width: 100%;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 button {
   background-color: #007bff;
   color: #fff;
   padding: 0;
+  width: 50%;
   height: 40px;
-  margin: 30px 0;
 }
 select,
 input {
@@ -140,7 +163,7 @@ h1 {
   display: flex;
   width: 40%;
   text-align: start;
-  padding: 122px;
+  padding: 80px;
 }
 p {
   // background-color: red;
@@ -151,10 +174,15 @@ p {
   line-height: 0px;
   margin-top: -4px;
 }
+.span-compte {
+  // background: red;
+  padding: 20px 0;
+  color: #333;
+  display: block;
+}
 
 @media (max-width: 992px) {
   .colonne {
-    // flex: 0 0 50%;
     width: 100%;
   }
 }
