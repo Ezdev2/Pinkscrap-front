@@ -6,7 +6,7 @@ const HomeBtn = () => {
   router.push("/");
 };
 const Login = () => {
-  router.push("/Login");
+  router.push("/login");
 };
 </script>
 
@@ -84,14 +84,8 @@ const Login = () => {
 .d-block {
   display: flex;
   justify-content: space-between;
-  // background: aqua;
   width: 100%;
 }
-// .color {
-//   overflow: scroll;
-//   scrollbar-width: none;
-//   height: 80vh;
-// }
 .color1 {
   width: 90%;
 }
