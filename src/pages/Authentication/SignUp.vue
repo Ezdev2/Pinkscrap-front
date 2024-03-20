@@ -1,12 +1,16 @@
 <script setup>
 import image from "../../assets/details-2.png";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const HomeBtn = () => {
+  router.push("/");
+};
 </script>
 
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
+  <div class="row">
         <div class="colonne">
+          <a href="#" @click="HomeBtn">vers la page home</a>
           <div class="color">
             <h1>Sing Up</h1>
             <div class="d-block">
@@ -46,8 +50,6 @@ import image from "../../assets/details-2.png";
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -60,22 +62,16 @@ img {
   bottom: -80px;
   right: -60px;
 }
-.container {
-  width: 100%;
-  max-width: 1140px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  // background-color: aqua;
-  background-color: #fff;
-  overflow: hidden;
-}
 .color1,
 .color {
   width: 80%;
   // background-color: blue;
   margin: 20px auto;
+}
+.color{
+  overflow: scroll;
+    scrollbar-width: none;
+    height: 95vh;
 }
 .color1{
   width: 90%;
@@ -86,9 +82,9 @@ img {
 }
 .row {
   display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: hidden;
 }
 label {
   font-size: 16px;

@@ -3,6 +3,7 @@ import Navbar from "./components/Display/Navbar.vue";
 import Footer from "./components/Display/Footer.vue";
 import { onBeforeRouteUpdate, useRouter } from 'vue-router';
 
+
 const route = useRouter();
 </script>
 
