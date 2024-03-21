@@ -162,6 +162,11 @@ const toggleParagraph = () => {
 </template>
 
 <style lang="scss" scoped>
+.nav-liste{
+  background-color: #5242ff;
+  font-weight: bold;
+  cursor: pointer;
+}
 .nav-list {
   // color: var(--color-bgBlack);
   cursor: pointer;

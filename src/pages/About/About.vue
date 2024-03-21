@@ -40,7 +40,7 @@ const gotoHomePage = () => {
       <div class="container md:h-[70vh] flex flex-col items-center justify-center px-[24px]">
         <div class="text-center">
           <ul
-            class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 py-2"
+            class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 pt-10 py-2"
           >
             <li class="leading-none text-bgBlack">
               <a class="inline-flex items-center text-primary" href="/">
