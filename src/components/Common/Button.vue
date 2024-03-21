@@ -55,5 +55,8 @@ defineProps({
   gap: 10px;
   border-radius: 4px;
   background: var(--color-black);
+  &:hover {
+    background: var(--color-bgBlack);
+  }
 }
 </style>

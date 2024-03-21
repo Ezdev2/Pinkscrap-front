@@ -132,3 +132,6 @@ button:focus-visible {
   input {
   margin: 5px;
 }
+:where(.css-dev-only-do-not-override-b92jn9).ant-select-single {
+  width: 100%;
+}

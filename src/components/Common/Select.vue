@@ -57,7 +57,7 @@ const value = ref(undefined);
       :disabled="disabled"
       show-search
       :placeholder="placeholder"
-      style="width: 200px"
+      style="min-width: 200px"
       :options="options"
       :filter-option="filterOption"
       @focus="handleFocus"

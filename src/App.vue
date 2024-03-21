@@ -1,25 +1,35 @@
 <script setup>
 import Navbar from "./components/Display/Navbar.vue";
 import Footer from "./components/Display/Footer.vue";
-import { onBeforeRouteUpdate, useRouter } from 'vue-router';
-
+import { onBeforeRouteUpdate, useRouter } from "vue-router";
 
 const route = useRouter();
 </script>
 
 <template>
-  <div>
-    <Navbar  v-if="!['/register', '/login'].includes($route.path)" />
+  <div class="full-page">
+    <Navbar
+      class="navbar"
+      v-if="!['/register', '/login'].includes($route.path)"
+    />
     <router-view v-slot="{ Component }">
       <transition appear name="fade-page" mode="out-in">
-        <component :is="Component" />
+        <component class="bodypage" :is="Component" />
       </transition>
     </router-view>
-    <Footer v-if="!['/register', '/login'].includes($route.path)" />
+    <Footer
+      class="footer"
+      v-if="!['/register', '/login'].includes($route.path)"
+    />
   </div>
 </template>
 
 <style lang="scss" scoped>
+.full-page {
+  width: -webkit-fill-available;
+  overflow: hidden;
+}
+
 .fade-page-enter-active,
 .fade-page-leave-active {
   transition: all 0.4s ease;

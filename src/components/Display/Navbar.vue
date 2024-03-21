@@ -8,10 +8,13 @@ const signUp = () => {
 const logIn = () => {
   router.push("/login");
 };
+const handleClick = (route) => {
+  router.push(route);
+};
 </script>
 
 <template>
-  <div class="flex flex-row items-center justify-between px-[122px] py-[38px]">
+  <div class="flex flex-row items-center justify-between lg:px-[122px] px-[24px] py-[38px]">
     <div>
       <a href="/">
         <svg
@@ -60,11 +63,15 @@ const logIn = () => {
         </svg>
       </a>
     </div>
-    <div class="flex flex-row items-center gap-[84px]">
-      <a class="nav-list" href="/about">A propos</a>
+    <div class="xl:flex flex-row items-center gap-[84px] hidden ">
+      <!-- <a class="nav-list" href="/about">A propos</a>
       <a class="nav-list" href="/pricing">Tarifs</a>
       <a class="nav-list" href="/about#faq">FAQ</a>
-      <a class="nav-list" href="/about#help">Comment ça marche</a>
+      <a class="nav-list" href="/about#help">Comment ça marche</a> -->
+      <div class="nav-list" @click="handleClick('/about')">A propos</div>
+      <div class="nav-list" @click="handleClick('/pricing')">Tarifs</div>
+      <div class="nav-list" @click="handleClick('/about#faq')">FAQ</div>
+      <div class="nav-list" @click="handleClick('/about#help')">Comment ça marche</div>
     </div>
     <div class="flex flex-row items-center gap-6">
       <button
@@ -89,11 +96,12 @@ const logIn = () => {
         Se connecter
       </button>
       <button
-        class="flex items-center justify-center px-6 py-3.5 bg-[#7166FF] text-white hover:bg-black focus:bg-black focus:outline-none"
+        class="hidden md:flex items-center justify-center px-6 py-3.5 bg-[#7166FF] text-white hover:bg-black focus:bg-black focus:outline-none"
         @click="signUp"
       >
         Créer un compte
       </button>
+      <!-- menu humbergur -->
     </div>
   </div>
 </template>

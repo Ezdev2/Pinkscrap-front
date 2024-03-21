@@ -11,7 +11,7 @@ import Witness from "./components/Witness.vue";
 </script>
 
 <template>
-  <div class="home">
+  <div class="home flex flex-col items-center gap-[34px] md:gap-[122px]">
     <HeaderSection />
     <TableSection />
     <Description />
@@ -32,12 +32,12 @@ import Witness from "./components/Witness.vue";
 
 <style lang="scss" scoped>
 .home {
-  display: flex;
+  // display: flex;
   position: relative;
   margin: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 122px;
+  // flex-direction: column;
+  // align-items: center;
+  // gap: 122px;
   align-self: stretch;
   &__bg {
     @apply absolute top-0 w-[90%] right-[12px];

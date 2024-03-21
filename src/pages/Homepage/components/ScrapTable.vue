@@ -199,8 +199,12 @@ const fetchData = async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-[80px] items-center w-[80%]">
-    <div class="flex gap-[12px] items-end">
+  <div
+    class="flex flex-col gap-[80px] items-center md:w-[80%] px-[12px] w-full"
+  >
+    <div
+      class="flex flex-col md:flex-row gap-[24px] md:gap-[12px] md:items-end justify-center w-full"
+    >
       <Select
         :options="categoryOptions"
         label="Catégories"
@@ -228,12 +232,15 @@ const fetchData = async () => {
         type="icon"
         @click="searchPlaces"
       >
-        <img src="@/assets/icons/search.svg" alt="details" />
+        <div class="flex items-center gap-2">
+          <img src="@/assets/icons/search.svg" alt="details" />
+          <span class="md:block text-white">Rechercher</span>
+        </div>
       </Button>
     </div>
 
     <div
-      class="bg-white rounded-[24px] flex flex-col gap-[24px] p-[42px] w-[100%]"
+      class="bg-white md:rounded-[24px] flex flex-col gap-[24px] p-[42px] w-[100%] overflow-x-visible"
     >
       <div
         v-if="categoryValue !== ''"
@@ -340,7 +347,7 @@ const fetchData = async () => {
       </div>
       <div v-else-if="!loading && !scrapResult.length">
         <img
-          class="m-auto w-[500px]"
+          class="m-auto w-[250px] md:w-[500px]"
           src="@/assets/no-data.svg"
           alt="not found"
         />
