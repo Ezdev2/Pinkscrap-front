@@ -6,59 +6,59 @@
       class="text-3xl md:text-4xl font-semibold font-theme-heading text-center"
     > -->
     <section class="page-hero py-16">
-  <div class="container">
-    <div class="text-center">
-      <ul
-        class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 py-2"
-      >
-        <li class="leading-none text-dark">
-          <a class="inline-flex items-center text-primary" href="#">
-            <svg
-              class="mr-1.5"
-              width="15"
-              height="15"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.1769 15.0588H10.3533V9.41178H5.64744V15.0588H2.82391V6.58825H1.88274V16H14.118V6.58825H13.1769V15.0588ZM6.58862 15.0588V10.353H9.41215V15.0588H6.58862ZM15.8084 6.09225L15.2512 6.85178L8.00038 1.52472L0.749559 6.8499L0.192383 6.09131L8.00038 0.357666L15.8084 6.09225Z"
-                fill="black"
-              />
-            </svg>
-            <span class="text-sm leading-none">Home</span>
-          </a>
-        </li>
-        <li class="leading-none text-dark">
-          <span class="text-sm leading-none">/ Pricing</span>
-        </li>
-      </ul>
-    </div>
-    <div class="page-hero-content mx-auto max-w-[768px] text-center">
-      <h1 class="mb-5 mt-8">Pinwheel Pricing</h1>
-      <p>
-        Donec sollicitudin molestie malesda. Donec sollitudin molestie
-        malesuada. Mauris <br />
-        pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna
-      </p>
-    </div>
-  </div>
-</section>
+      <div class="container">
+        <div class="text-center">
+          <ul
+            class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 py-2"
+          >
+            <li class="leading-none text-dark">
+              <a class="inline-flex items-center text-primary" href="#">
+                <svg
+                  class="mr-1.5"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.1769 15.0588H10.3533V9.41178H5.64744V15.0588H2.82391V6.58825H1.88274V16H14.118V6.58825H13.1769V15.0588ZM6.58862 15.0588V10.353H9.41215V15.0588H6.58862ZM15.8084 6.09225L15.2512 6.85178L8.00038 1.52472L0.749559 6.8499L0.192383 6.09131L8.00038 0.357666L15.8084 6.09225Z"
+                    fill="black"
+                  />
+                </svg>
+                <span class="text-sm leading-none">Home</span>
+              </a>
+            </li>
+            <li class="leading-none text-dark">
+              <span class="text-sm leading-none">/ Pricing</span>
+            </li>
+          </ul>
+        </div>
+        <div class="page-hero-content mx-auto max-w-[768px] text-center">
+          <h1 class="mb-5 mt-8">Pinwheel Pricing</h1>
+          <p>
+            Donec sollicitudin molestie malesda. Donec sollitudin molestie
+            malesuada. Mauris <br />
+            pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna
+          </p>
+        </div>
+      </div>
+    </section>
     <img
-  class="floating-bubble-1 absolute right-0 top-0 -z-[1]"
-  src="https://themewagon.github.io/pinwheel/images/floating-bubble-1.svg"
-  alt=""
-/>
-<img
-  class="floating-bubble-2 absolute left-0 top-[387px] -z-[1]"
-  src="https://themewagon.github.io/pinwheel/images/floating-bubble-2.svg"
-  alt=""
-/>
-<img
-  class="floating-bubble-3 absolute right-0 top-[605px] -z-[1]"
-  src="https://themewagon.github.io/pinwheel/images/floating-bubble-3.svg"
-  alt=""
-/>
+      class="floating-bubble-1 absolute right-0 top-0 -z-[1]"
+      src="https://themewagon.github.io/pinwheel/images/floating-bubble-1.svg"
+      alt=""
+    />
+    <img
+      class="floating-bubble-2 absolute left-0 top-[387px] -z-[1]"
+      src="https://themewagon.github.io/pinwheel/images/floating-bubble-2.svg"
+      alt=""
+    />
+    <img
+      class="floating-bubble-3 absolute right-0 top-[605px] -z-[1]"
+      src="https://themewagon.github.io/pinwheel/images/floating-bubble-3.svg"
+      alt=""
+    />
     <!-- ./end floating assets -->
 
     <!-- pricing -->
@@ -75,7 +75,10 @@
                 <span
                   class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-theme-light"
                 >
-                  <img src="https://themewagon.github.io/pinwheel/images/icons/price-card-icon-1.svg" alt="" />
+                  <img
+                    src="https://themewagon.github.io/pinwheel/images/icons/price-card-icon-1.svg"
+                    alt=""
+                  />
                 </span>
               </div>
               <p class="mt-6">
@@ -178,7 +181,12 @@
                 </ul>
               </div>
               <div class="text-center">
-                <a style="background-color:#5242ff; color: #fff; padding-top:8px;"
+                <a
+                  style="
+                    background-color: #5242ff;
+                    color: #fff;
+                    padding-top: 8px;
+                  "
                   class="btn btn-outline-white block h-[48px] w-full rounded-[50px] leading-[30px]"
                   href="#"
                   >Buy now</a
@@ -211,10 +219,20 @@
                   <h2 class="h3">Enterprise</h2>
                   <p class="mt-3 text-2xl text-dark">$ 59.00 USD</p>
                 </div>
-                <span  style="background-image: linear-gradient(184.78deg, #fa709a 7.64%, #fee140 120.07%);"
+                <span
+                  style="
+                    background-image: linear-gradient(
+                      184.78deg,
+                      #fa709a 7.64%,
+                      #fee140 120.07%
+                    );
+                  "
                   class="bg-gradient inline-flex h-16 w-16 items-center justify-center rounded-full"
                 >
-                  <img src="https://themewagon.github.io/pinwheel/images/icons/price-card-icon-2.svg" alt="" />
+                  <img
+                    src="https://themewagon.github.io/pinwheel/images/icons/price-card-icon-2.svg"
+                    alt=""
+                  />
                 </span>
               </div>
               <p class="mt-6">
@@ -317,7 +335,12 @@
                 </ul>
               </div>
               <div class="text-center">
-                <a style="background-color:#5242ff; color: #fff; padding-top:8px;"
+                <a
+                  style="
+                    background-color: #5242ff;
+                    color: #fff;
+                    padding-top: 8px;
+                  "
                   class="btn btn-outline-white block h-[48px] w-full rounded-[50px] leading-[30px]"
                   href="#"
                   >Buy now</a
@@ -351,7 +374,10 @@
                 <span
                   class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-theme-light"
                 >
-                  <img src="https://themewagon.github.io/pinwheel/images/icons/price-card-icon-3.svg" alt="" />
+                  <img
+                    src="https://themewagon.github.io/pinwheel/images/icons/price-card-icon-3.svg"
+                    alt=""
+                  />
                 </span>
               </div>
               <p class="mt-6">
@@ -454,7 +480,12 @@
                 </ul>
               </div>
               <div class="text-center">
-                <a style="background-color:#5242ff; color: #fff; padding-top:8px;"
+                <a
+                  style="
+                    background-color: #5242ff;
+                    color: #fff;
+                    padding-top: 8px;
+                  "
                   class="btn btn-outline-primary block h-[48px] w-full rounded-[50px] leading-[30px]"
                   href="#"
                   >Buy now</a
@@ -495,7 +526,7 @@
   // gap: 122px;
   align-self: stretch;
 }
-// 
+//
 .row {
   display: flex;
   gap: 45px;
@@ -503,25 +534,25 @@
 }
 .section {
   // background-color: red;
-    // padding-top: 4rem;
-    padding-bottom: 4rem;
+  // padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 .lg\:col-4 {
   width: 30%;
 }
-.h3{
+.h3 {
   font-size: 2rem;
   font-weight: bold;
 }
 
 @media only screen and (max-width: 1023px) {
   .lg\:col-4 {
-  width: 45%;
-}
+    width: 45%;
+  }
 }
 @media only screen and (max-width: 464px) {
   .lg\:col-4 {
-  width: 100%;
-}
+    width: 100%;
+  }
 }
 </style>

@@ -4,6 +4,7 @@ import Login from '../pages/Authentication/Login.vue';
 import SignUp from '../pages/Authentication/SignUp.vue';
 import About from '../pages/About/About.vue';
 import Pricing from '../pages/Pricing/Pricing.vue';
+import faq from '../pages/faq/Faq.vue'
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/pricing',
         name: 'Pricing',
         component: Pricing
+    },
+    {
+        path: '/faq',
+        name: 'faq',
+        component: faq
     },
 ]
 
