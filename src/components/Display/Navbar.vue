@@ -11,10 +11,18 @@ const logIn = () => {
 const handleClick = (route) => {
   router.push(route);
 };
+import { ref } from 'vue';
+
+const isVisible = ref(false);
+
+const toggleParagraph = () => {
+  isVisible.value = !isVisible.value;
+};
 </script>
 
 <template>
-  <div class="flex flex-row items-center justify-between lg:px-[122px] px-[24px] py-[38px]">
+  <div>
+    <div class="flex flex-row items-center justify-between lg:px-[122px] px-[24px] py-[38px]">
     <div>
       <a href="/">
         <svg
@@ -93,7 +101,7 @@ const handleClick = (route) => {
             stroke-linejoin="round"
           />
         </svg>
-        Se connecter
+        <span class="hidden md:block">Se connecter</span>
       </button>
       <button
         class="hidden md:flex items-center justify-center px-6 py-3.5 bg-[#7166FF] text-white hover:bg-black focus:bg-black focus:outline-none"
@@ -101,15 +109,28 @@ const handleClick = (route) => {
       >
         Créer un compte
       </button>
+      <span @click="toggleParagraph" class="xl:hidden flex"><img src="../../assets/icons/menu-.svg" alt="icone" ></span>
       <!-- menu humbergur -->
     </div>
+    <div>
+  </div>
+  </div>
+  <div>
+    <div v-if="isVisible" class="">
+      <div class="nav-list bg-slate-600 py-4 text-white" @click="handleClick('/about')">A propos</div>
+      <div class="nav-list bg-slate-600 py-4 text-white" @click="handleClick('/pricing')">Tarifs</div>
+      <div class="nav-list bg-slate-600 py-4 text-white" @click="handleClick('/about#faq')">FAQ</div>
+      <div class="nav-list bg-slate-600 py-4 text-white mb-8" @click="handleClick('/about#help')">Comment ça marche</div>
+    </div>
+  </div>
+
   </div>
  
 </template>
 
 <style lang="scss" scoped>
 .nav-list {
-  color: var(--color-bgBlack);
+  // color: var(--color-bgBlack);
   &:hover {
     color: var(--color-primaryScale);
   }
