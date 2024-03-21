@@ -21,7 +21,7 @@ export const features = [
     },
     {
         id: 3,
-        name: "Télécahrgement en un click",
+        name: "Téléchargement en un click",
         details: {
             imageUrl: "src/assets/illustration-features-tab-3.svg",
             title: "Télécherger facilement la liste",

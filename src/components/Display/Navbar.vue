@@ -1,7 +1,13 @@
 <script setup>
 import { useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
 
 const router = useRouter();
+
+onMounted(() => {
+  isVisible.value = false;
+});
+
 const signUp = () => {
   router.push("/register");
 };
@@ -11,7 +17,6 @@ const logIn = () => {
 const handleClick = (route) => {
   router.push(route);
 };
-import { ref } from "vue";
 
 const isVisible = ref(false);
 
@@ -74,10 +79,7 @@ const toggleParagraph = () => {
         </a>
       </div>
       <div class="xl:flex flex-row items-center gap-[84px] hidden">
-        <!-- <a class="nav-list" href="/about">A propos</a>
-      <a class="nav-list" href="/pricing">Tarifs</a>
-      <a class="nav-list" href="/about#faq">FAQ</a>
-      <a class="nav-list" href="/about#help">Comment ça marche</a> -->
+        <div class="nav-list" @click="handleClick('/')">Accueil</div>
         <div class="nav-list" @click="handleClick('/about')">A propos</div>
         <div class="nav-list" @click="handleClick('/pricing')">Tarifs</div>
         <div class="nav-list" @click="handleClick('/about#faq')">FAQ</div>
@@ -113,39 +115,48 @@ const toggleParagraph = () => {
         >
           Créer un compte
         </button>
+        <span @click="toggleParagraph" class="xl:hidden flex"
+          ><img src="../../assets/icons/menu-.svg" alt="icone"
+        /></span>
         <!-- menu humbergur -->
       </div>
-      <span @click="toggleParagraph" class="xl:hidden flex"
-        ><img src="../../assets/icons/menu-.svg" alt="icone"
-      /></span>
+      <!-- <div></div> -->
     </div>
     <div>
-      <div v-if="isVisible" class="">
-        <div
-          class="nav-liste py-4 text-white"
-          @click="handleClick('/about')"
-        >
-          A propos
+      <transition appear name="fade-page" mode="out-in">
+        <div v-if="isVisible" class="">
+          <div
+            class="nav-list bg-slate-600 py-4 text-white"
+            @click="handleClick('/')"
+          >
+            Accueil
+          </div>
+          <div
+            class="nav-list bg-slate-600 py-4 text-white"
+            @click="handleClick('/about')"
+          >
+            A propos
+          </div>
+          <div
+            class="nav-list bg-slate-600 py-4 text-white"
+            @click="handleClick('/pricing')"
+          >
+            Tarifs
+          </div>
+          <div
+            class="nav-list bg-slate-600 py-4 text-white"
+            @click="handleClick('/about#faq')"
+          >
+            FAQ
+          </div>
+          <div
+            class="nav-list bg-slate-600 py-4 text-white mb-8"
+            @click="handleClick('/about#help')"
+          >
+            Comment ça marche
+          </div>
         </div>
-        <div
-          class="nav-liste py-4 text-white"
-          @click="handleClick('/pricing')"
-        >
-          Tarifs
-        </div>
-        <div
-          class="nav-liste py-4 text-white"
-          @click="handleClick('/about#faq')"
-        >
-          FAQ
-        </div>
-        <div
-          class="nav-liste py-4 text-white mb-8"
-          @click="handleClick('/about#help')"
-        >
-          Comment ça marche
-        </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -157,10 +168,22 @@ const toggleParagraph = () => {
   cursor: pointer;
 }
 .nav-list {
-  color: var(--color-bgBlack);
+  // color: var(--color-bgBlack);
   cursor: pointer;
   &:hover {
     color: var(--color-primaryScale);
   }
+}
+.fade-page-enter-active,
+.fade-page-leave-active {
+  transition: all 0.4s ease;
+  visibility: hidden;
+  transition-delay: 0.1s;
+}
+
+.fade-page-enter-from,
+.fade-page-leave-to {
+  opacity: 0;
+  visibility: visible;
 }
 </style>

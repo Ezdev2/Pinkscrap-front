@@ -4,6 +4,7 @@ import { ref } from "vue";
 import LinkButton from "../../components/Common/LinkButton.vue";
 import Button from "@/components/Common/Button.vue";
 import { useRouter } from "vue-router";
+import Title from "@/components/Common/Title.vue";
 
 const router = useRouter();
 let isOpen = ref(1);
@@ -36,7 +37,7 @@ const gotoHomePage = () => {
       <!-- ./end floating assets -->
 
       <!-- Common hero -->
-      <div class="container h-[70vh] flex flex-col items-center justify-center">
+      <div class="container md:h-[70vh] flex flex-col items-center justify-center px-[24px]">
         <div class="text-center">
           <ul
             class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 pt-10 py-2"
@@ -64,9 +65,9 @@ const gotoHomePage = () => {
             </li>
           </ul>
         </div>
-        <div class="page-hero-content mx-auto max-w-[768px] text-center">
-          <h1 class="mb-5 mt-8">Qui sommes-nous ?</h1>
-          <p>
+        <div class="mx-auto md:max-w-[768px] text-center flex flex-col gap-[24px]">
+          <Title type="h1" label="Qui sommes-nous ?"></Title>
+          <p class="text-blackScale">
             Nous sommes une équipe dévouée spécialisée dans la fourniture de
             solutions de génération de leads B2B innovantes. Notre service
             phare, la téléchargement de leads B2B de la base GMap, offre aux
@@ -74,18 +75,15 @@ const gotoHomePage = () => {
             de prospects qualifiés directement depuis la base de données de
             Google Maps.
           </p>
-          <div class="mt-11 justify-center sm:flex">
-            <!-- <a class="btn btn-primary m-3 block sm:inline-block" href="#"
-          >Download The Theme</a
-        > -->
+          <div class="justify-center flex flex-col md:flex-row items-center">
             <Button
               style="width: fit-content"
               type="primary"
-              label="Rechercher maintenant"
+              label="Commencer"
               @click="gotoHomePage"
             />
             <a
-              class="btn btn-outline-primary m-3 block min-w-[160px] sm:inline-block"
+              class="btn btn-outline-primary m-3 block md:min-w-[160px] sm:inline-block"
               href="#help"
               >En savoir plus</a
             >
@@ -95,8 +93,8 @@ const gotoHomePage = () => {
     </div>
 
     <!-- Features Section Start -->
-    <div id="help" class="container mx-auto px-8">
-      <section class="py-16">
+    <div id="help" class="container mx-auto px-[24px]">
+      <section class="">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
             class="text-3xl md:text-4xl font-semibold font-theme-heading text-center"
@@ -113,7 +111,7 @@ const gotoHomePage = () => {
 
         <div class="mt-10">
           <ul
-            class="flex flex-col items-center md:flex-row justify-center font-theme-heading"
+            class="tab-ul flex items-center md:flex-row gap-2 justify-center font-theme-heading w-full overflow-x-scroll"
           >
             <li
               v-for="feature in features"
@@ -123,7 +121,7 @@ const gotoHomePage = () => {
                   ? 'md:border-b-4 md:border-theme-secondary'
                   : ''
               "
-              class="w-full md:w-56 cursor-pointer hover:text-theme-secondary transition duration-200 border-b-2 border-t-2 md:border-t-0 flex justify-center"
+              class=" md:w-56 cursor-pointer hover:text-theme-secondary transition duration-200 border-b-2 border-t-2 md:border-t-0 flex justify-center"
             >
               <a
                 @click.prevent="isOpen = feature.id"
@@ -141,7 +139,7 @@ const gotoHomePage = () => {
           <template v-for="feature in features" :key="feature.id">
             <div
               v-show="isOpen === feature.id"
-              class="grid gap-32 lg:grid-cols-2 items-center"
+              class="grid md:gap-32 gap-4  lg:grid-cols-2 items-center"
             >
               <div class="relative">
                 <img class="z-10 w-full" :src="feature.details.imageUrl" />
@@ -178,8 +176,8 @@ const gotoHomePage = () => {
     <!-- Features Section End -->
 
     <!-- Download Section Start -->
-    <div id="download-section" class="container mx-auto px-8 md:w-4/5">
-      <section class="py-16 pt-18">
+    <div id="value-section" class="container mx-auto px-8 md:w-4/5">
+      <section class="pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
             class="text-3xl md:text-4xl font-theme-heading font-medium text-center"
@@ -242,7 +240,7 @@ const gotoHomePage = () => {
 
     <!-- Questions Section Start -->
     <div id="faq" class="container mx-auto px-8 md:w-4/5">
-      <section class="py-16 pt-18">
+      <section class="pb-[80px] md:pt-[80px] pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
             class="text-3xl md:text-4xl font-theme-heading font-medium text-center"
@@ -258,15 +256,15 @@ const gotoHomePage = () => {
           </p>
         </div>
 
-        <div class="mt-10 w-full lg:w-3/5 mx-auto">
+        <div class="mt-10 w-full mx-auto">
           <ul class="faq-section">
             <template v-for="(faq, index) in faqs" :key="faq.id">
               <li
                 @click="isOpenFaq = faq.id"
                 :class="isOpenFaq === faq.id ? 'text-theme-secondary' : ''"
-                class="font-theme-content font-medium text-xl cursor-pointer hover:text-theme-secondary py-5 flex justify-between items-center transition duration-200 px-6"
+                class="font-theme-content font-medium text-xl cursor-pointer hover:text-theme-secondary py-5 flex gap-2 justify-between items-center transition duration-200 px-6"
               >
-                <a class="faq-title" href="#">{{ faq.title }}</a>
+                <p class="faq-title">{{ faq.title }}</p>
                 <svg
                   :class="
                     isOpenFaq === faq.id
@@ -311,5 +309,9 @@ const gotoHomePage = () => {
   font-size: medium;
   color: #333;
   font-weight: 800;
+  text-align: start;
+}
+.tab-ul {
+  scrollbar-width: none;
 }
 </style>
