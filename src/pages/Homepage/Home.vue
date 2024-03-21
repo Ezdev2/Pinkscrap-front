@@ -18,7 +18,7 @@ import Witness from "./components/Witness.vue";
     <DetailSection />
     <Demo />
     <Witness />
-    <div class="flex flex-col gap-[80px] bg-bgBlack w-full px-[122px] py-[80px]">
+    <div class="flex flex-col gap-[80px] bg-bgBlack w-full px-[24px] md:px-[122px] py-[80px]">
       <Feedback />
       <CallToAction />
       <!-- <FooterSection /> -->

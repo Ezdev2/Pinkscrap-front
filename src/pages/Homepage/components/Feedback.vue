@@ -77,7 +77,7 @@ const feedbackData = [
     letter-spacing: 1px;
   }
   &__content {
-    @apply flex gap-[48px] items-center;
+    @apply flex flex-col md:flex-row gap-[48px] items-center;
   }
 }
 .title {

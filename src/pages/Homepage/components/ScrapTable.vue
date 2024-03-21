@@ -200,7 +200,7 @@ const fetchData = async () => {
 
 <template>
   <div
-    class="flex flex-col gap-[80px] items-center md:w-[80%] px-[12px] w-full"
+    class="flex flex-col gap-[80px] items-center md:w-[80%] px-[24px] w-full"
   >
     <div
       class="flex flex-col md:flex-row gap-[24px] md:gap-[12px] md:items-end justify-center w-full"
@@ -240,7 +240,7 @@ const fetchData = async () => {
     </div>
 
     <div
-      class="bg-white md:rounded-[24px] flex flex-col gap-[24px] p-[42px] w-[100%] overflow-x-visible"
+      class="bg-white md:rounded-[24px] flex flex-col gap-[24px] p-[12px] md:p-[42px] w-[100%] overflow-x-visible"
     >
       <div
         v-if="categoryValue !== ''"
@@ -262,82 +262,91 @@ const fetchData = async () => {
         v-else-if="!loading && scrapResult.length"
         class="flex flex-col gap-[42px] items-center w-full"
       >
-        <table class="table-container">
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Téléphone</th>
-              <th>Email</th>
-              <th>Réseaux sociaux</th>
-              <th>Lien</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in scrapResult.slice(0, 20)" :key="index">
-              <td>
-                <a
-                  :href="
-                    'https://www.google.com/maps/place/?q=place_id:' +
-                    item.place_id
-                  "
-                  target="_blank"
-                  >{{ item.nom }}</a
-                >
-              </td>
-              <td
-                :style="{
-                  'background-color': index % 2 === 0 ? '#f2f2f2' : 'white',
-                }"
+        <div class="flex flex-col gap-[42px] md:items-center w-full overflow-x-scroll">
+          <table class="table-container w-full">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Réseaux sociaux</th>
+                <th>Lien</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(item, index) in scrapResult.slice(0, 20)"
+                :key="index"
               >
-                {{ item.phone }}
-              </td>
-              <td class="td-email">
-                <a
-                  v-if="item.email !== 'non disponible'"
-                  :href="'mailto:' + item.email"
-                  >{{ item.email }}</a
-                >
-                <span v-else class="text-gray">{{ item.email }}</span>
-              </td>
-              <td>
-                <div class="flex gap-[12px]">
-                  <div
-                    v-for="part in item.socialMedia.split(' | ')"
-                    :key="part"
+                <td>
+                  <a
+                    :href="
+                      'https://www.google.com/maps/place/?q=place_id:' +
+                      item.place_id
+                    "
+                    target="_blank"
+                    >{{ item.nom }}</a
                   >
-                    <a
-                      v-if="part.includes('fb')"
-                      :href="'https://www.facebook.com/' + getSocialname(part)"
-                      target="_blank"
+                </td>
+                <td
+                  :style="{
+                    'background-color': index % 2 === 0 ? '#f2f2f2' : 'white',
+                  }"
+                >
+                  {{ item.phone }}
+                </td>
+                <td class="td-email">
+                  <a
+                    v-if="item.email !== 'non disponible'"
+                    :href="'mailto:' + item.email"
+                    >{{ item.email }}</a
+                  >
+                  <span v-else class="text-gray">{{ item.email }}</span>
+                </td>
+                <td>
+                  <div class="flex gap-[12px]">
+                    <div
+                      v-for="part in item.socialMedia.split(' | ')"
+                      :key="part"
                     >
-                      <img src="@/assets/fb-logo.svg" alt="Facebook" />
-                    </a>
-                    <a
-                      v-else-if="part.includes('insta')"
-                      :href="'https://www.instagram.com/' + getSocialname(part)"
-                      target="_blank"
-                    >
-                      <img src="@/assets/insta-logo.svg" alt="Instagram" />
-                    </a>
-                    <a
-                      v-else-if="part.includes('twit')"
-                      :href="'https://www.twitter.com/' + getSocialname(part)"
-                      target="_blank"
-                    >
-                      <img src="@/assets/twit-logo.svg" alt="Twitter" />
-                    </a>
+                      <a
+                        v-if="part.includes('fb')"
+                        :href="
+                          'https://www.facebook.com/' + getSocialname(part)
+                        "
+                        target="_blank"
+                      >
+                        <img src="@/assets/fb-logo.svg" alt="Facebook" />
+                      </a>
+                      <a
+                        v-else-if="part.includes('insta')"
+                        :href="
+                          'https://www.instagram.com/' + getSocialname(part)
+                        "
+                        target="_blank"
+                      >
+                        <img src="@/assets/insta-logo.svg" alt="Instagram" />
+                      </a>
+                      <a
+                        v-else-if="part.includes('twit')"
+                        :href="'https://www.twitter.com/' + getSocialname(part)"
+                        target="_blank"
+                      >
+                        <img src="@/assets/twit-logo.svg" alt="Twitter" />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>
-                <a v-if="item.link !== 'non disponible'" :href="item.link"
-                  ><img src="@/assets/link.svg" alt="link"
-                /></a>
-                <img v-else src="@/assets/no-link.svg" alt="no-link" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td>
+                  <a v-if="item.link !== 'non disponible'" :href="item.link"
+                    ><img src="@/assets/link.svg" alt="link"
+                  /></a>
+                  <img v-else src="@/assets/no-link.svg" alt="no-link" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <Button
           style="width: fit-content"
           type="primary"
