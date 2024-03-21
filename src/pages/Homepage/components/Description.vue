@@ -5,8 +5,8 @@ import Button from "@/components/Common/Button.vue";
 
 <template>
   <div class="desc">
-    <div class="flex gap-[80px] items-center px-[122px] py-[80px]">
-      <div class="flex flex-col items-start w-[40%] gap-[24px]">
+    <div class="flex md:flex-row flex-col gap-[24px] md:gap-[80px] items-center p-[24px] md:px-[122px] md:py-[80px]">
+      <div class="flex flex-col items-start md:w-[40%] gap-[24px]">
         <Title
           type="h5"
           class="text-start"
