@@ -11,7 +11,7 @@ const logIn = () => {
 </script>
 
 <template>
-  <div class="flex flex-row items-center justify-between px-[122px] py-[38px]">
+    <div class="flex flex-row items-center justify-between px-[122px] py-[38px]">
     <div>
       <a href="/">
         <svg
@@ -96,6 +96,7 @@ const logIn = () => {
       </button>
     </div>
   </div>
+ 
 </template>
 
 <style lang="scss" scoped>
