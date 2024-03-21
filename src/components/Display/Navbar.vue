@@ -104,6 +104,7 @@ const handleClick = (route) => {
       <!-- menu humbergur -->
     </div>
   </div>
+ 
 </template>
 
 <style lang="scss" scoped>

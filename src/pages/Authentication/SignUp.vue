@@ -46,7 +46,9 @@ const Login = () => {
           </div>
         </div>
         <div class="division">
-          <p class="span-compte">Vous avez déjà un compte? <a @click="Login">Connexion</a></p>
+          <p class="span-compte">
+            Vous avez déjà un compte? <a @click="Login">Connexion</a>
+          </p>
           <button>S'inscrire</button>
         </div>
       </div>
@@ -75,7 +77,7 @@ const Login = () => {
 .bg-col img {
   // background-color: red;
   position: absolute;
-  bottom: -120px;
+  bottom: -225px;
   right: -30px;
 }
 .div-inp {
@@ -84,7 +86,15 @@ const Login = () => {
 .d-block {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   width: 100%;
+  flex-wrap: wrap;
+}
+.color{
+  // background-color: red;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  height: 80vh;
 }
 .color1 {
   width: 90%;
@@ -95,7 +105,7 @@ const Login = () => {
   height: 100vh;
   overflow: hidden;
 }
-a{
+a {
   cursor: pointer;
 }
 label {
@@ -144,10 +154,10 @@ h1 {
 }
 .colonne {
   position: relative;
-  padding: 80px;
+  padding: 60px 80px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 24px;
   width: 60%;
   text-align: justify;
 }
@@ -156,7 +166,7 @@ h1 {
   display: flex;
   width: 40%;
   text-align: start;
-  padding: 80px;
+  padding: 60px 80px;
 }
 p {
   // background-color: red;
@@ -173,10 +183,34 @@ p {
   color: #333;
   display: block;
 }
-
+@media (max-width: 1098px) {
+  .div-inp{
+    width: 100%;
+  }
+}
 @media (max-width: 992px) {
   .colonne {
     width: 100%;
   }
+}
+@media (max-width: 425px) {
+  .colonne-right{
+    display: none;
+  }
+  .colonne {
+  // background-color: aqua;
+  padding: 10px;
+  height: 100vh;
+}
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0;
+  width: 100%;
+  height: 40px;
+}
+.color{
+  height: 100vh;
+}
 }
 </style>

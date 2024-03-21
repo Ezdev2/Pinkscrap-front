@@ -83,10 +83,12 @@ const socialLink = [
 .footer {
   @apply bg-bgFooter w-full;
   display: flex;
+  flex-wrap: wrap;
   padding: 80px 194px;
   justify-content: space-between;
   align-items: flex-start;
   align-self: stretch;
+  gap: 20px;
   &__title {
     text-transform: uppercase;
     color: #fff;
@@ -94,6 +96,12 @@ const socialLink = [
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .footer {
+    padding: 80px;
+    gap: 35px;
   }
 }
 </style>
