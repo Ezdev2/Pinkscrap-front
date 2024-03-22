@@ -82,10 +82,7 @@ const toggleParagraph = () => {
         <div class="nav-list" @click="handleClick('/')">Accueil</div>
         <div class="nav-list" @click="handleClick('/about')">A propos</div>
         <div class="nav-list" @click="handleClick('/pricing')">Tarifs</div>
-        <div class="nav-list" @click="handleClick('/about#faq')">FAQ</div>
-        <div class="nav-list" @click="handleClick('/about#help')">
-          Comment ça marche
-        </div>
+        <div class="nav-list" @click="handleClick('/faq')">FAQ</div>
       </div>
       <div class="flex flex-row items-center gap-6">
         <button
@@ -126,34 +123,28 @@ const toggleParagraph = () => {
       <transition appear name="fade-page" mode="out-in">
         <div v-if="isVisible" class="">
           <div
-            class="nav-list bg-slate-600 py-4 text-white"
+            class="nav-liste py-4 text-white"
             @click="handleClick('/')"
           >
             Accueil
           </div>
           <div
-            class="nav-list bg-slate-600 py-4 text-white"
+            class="nav-liste py-4 text-white"
             @click="handleClick('/about')"
           >
             A propos
           </div>
           <div
-            class="nav-list bg-slate-600 py-4 text-white"
+            class="nav-liste py-4 text-white"
             @click="handleClick('/pricing')"
           >
             Tarifs
           </div>
           <div
-            class="nav-list bg-slate-600 py-4 text-white"
-            @click="handleClick('/about#faq')"
+            class="nav-liste py-4 text-white"
+            @click="handleClick('/faq')"
           >
             FAQ
-          </div>
-          <div
-            class="nav-list bg-slate-600 py-4 text-white mb-8"
-            @click="handleClick('/about#help')"
-          >
-            Comment ça marche
           </div>
         </div>
       </transition>

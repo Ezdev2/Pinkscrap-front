@@ -7,16 +7,21 @@ import Demo from "./components/Demo.vue";
 import Feedback from "./components/Feedback.vue";
 import CallToAction from "./components/CallToAction.vue";
 import Witness from "./components/Witness.vue";
+
+AOS.init({
+        offset: 400,
+        duration: 1000,
+      });
 </script>
 
 <template>
   <div class="home flex flex-col items-center gap-[34px] md:gap-[122px]">
     <HeaderSection />
     <TableSection />
-    <Description />
-    <DetailSection />
-    <Demo />
-    <Witness />
+    <Description data-aos="fade-up"/>
+    <DetailSection data-aos="fade-up"  />
+    <Demo data-aos="fade-up" />
+    <Witness data-aos="fade-up"/>
     <div class="flex flex-col gap-[80px] bg-bgBlack w-full px-[24px] md:px-[122px] py-[80px]">
       <Feedback />
       <CallToAction />
