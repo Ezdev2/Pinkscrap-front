@@ -13,10 +13,15 @@ let isOpenFaq = ref(1);
 const gotoHomePage = () => {
   router.push("/");
 };
+
+AOS.init({
+        offset: 400,
+        duration: 1000,
+      });
 </script>
 
 <template>
-  <div class="w-full overflow-x-hidden flex flex-col items-center gap-[80px]">
+  <div class="w-full overflow-x-hidden flex flex-col items-center gap-[80px] pricing">
     <div class="flex flex-col items-center">
       <!-- floating assets -->
       <img
@@ -101,7 +106,7 @@ const gotoHomePage = () => {
     </div>
 
     <!-- Features Section Start -->
-    <div id="help" class="container mx-auto px-[24px]">
+    <div data-aos="fade-up" id="help" class="container mx-auto px-[24px]">
       <section class="">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -184,7 +189,7 @@ const gotoHomePage = () => {
     <!-- Features Section End -->
 
     <!-- Download Section Start -->
-    <div id="value-section" class="container mx-auto px-8 md:w-4/5">
+    <div data-aos="fade-up" id="value-section" class="container mx-auto px-8 md:w-4/5">
       <section class="pt-18">
         <div class="w-4/5 md:w-3/5 mx-auto">
           <h2
@@ -308,6 +313,15 @@ const gotoHomePage = () => {
 </template>
 
 <style lang="scss" scoped>
+.pricing {
+  display: flex;
+  position: relative;
+  margin: none;
+  flex-direction: column;
+  align-items: center;
+  // gap: 122px;
+  align-self: stretch;
+}
 .faq-section {
   background: #fff !important;
   padding: 16px;
