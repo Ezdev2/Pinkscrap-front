@@ -109,8 +109,7 @@ button:focus-visible {
   height: 43px !important;
 }
 :where(.css-dev-only-do-not-override-b92jn9).ant-select
-  .ant-select-selection-item,
-:where(.css-b92jn9).ant-select .ant-select-selection-item {
+  .ant-select-selection-item {
   flex: 1;
   font-weight: normal;
   overflow: hidden;
@@ -118,6 +117,12 @@ button:focus-visible {
   text-overflow: ellipsis;
   text-align: start;
   font-size: medium;
+  margin: 5px;
+}
+:where(.css-b92jn9).ant-select-single
+  .ant-select-selector
+  .ant-select-selection-item,
+:where(.css-b92jn9).ant-select .ant-select-selection-item {
   margin: 5px;
 }
 :where(.css-dev-only-do-not-override-b92jn9).ant-select
