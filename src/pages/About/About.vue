@@ -34,10 +34,15 @@ const gotoHomePage = () => {
         src="https://themewagon.github.io/pinwheel/images/floating-bubble-3.svg"
         alt=""
       />
+      <div class="home_bg">
+        <img src="@/assets/bg-1.svg" alt="camera" class="card-security__img" />
+      </div>
       <!-- ./end floating assets -->
 
       <!-- Common hero -->
-      <div class="container md:h-[70vh] flex flex-col items-center justify-center px-[24px]">
+      <div
+        class="container md:h-[70vh] flex flex-col items-center justify-center px-[24px]"
+      >
         <div class="text-center">
           <ul
             class="breadcrumb inline-flex h-8 items-center justify-center space-x-2 rounded-3xl bg-theme-light px-4 pt-10 py-2"
@@ -65,7 +70,10 @@ const gotoHomePage = () => {
             </li>
           </ul>
         </div>
-        <div class="mx-auto md:max-w-[768px] text-center flex flex-col gap-[24px]">
+
+        <div
+          class="mx-auto md:max-w-[768px] text-center flex flex-col gap-[24px]"
+        >
           <Title type="h1" label="Qui sommes-nous ?"></Title>
           <p class="text-blackScale">
             Nous sommes une équipe dévouée spécialisée dans la fourniture de
@@ -121,7 +129,7 @@ const gotoHomePage = () => {
                   ? 'md:border-b-4 md:border-theme-secondary'
                   : ''
               "
-              class=" md:w-56 cursor-pointer hover:text-theme-secondary transition duration-200 border-b-2 border-t-2 md:border-t-0 flex justify-center"
+              class="md:w-56 cursor-pointer hover:text-theme-secondary transition duration-200 border-b-2 border-t-2 md:border-t-0 flex justify-center"
             >
               <a
                 @click.prevent="isOpen = feature.id"
@@ -139,7 +147,7 @@ const gotoHomePage = () => {
           <template v-for="feature in features" :key="feature.id">
             <div
               v-show="isOpen === feature.id"
-              class="grid md:gap-32 gap-4  lg:grid-cols-2 items-center"
+              class="grid md:gap-32 gap-4 lg:grid-cols-2 items-center"
             >
               <div class="relative">
                 <img class="z-10 w-full" :src="feature.details.imageUrl" />
@@ -313,5 +321,18 @@ const gotoHomePage = () => {
 }
 .tab-ul {
   scrollbar-width: none;
+}
+.home_bg {
+  position: absolute;
+  width: 88%;
+  top: 184px;
+  left: 105px;
+}
+
+@media only screen and (max-width: 900px) {
+  .home_bg {
+    width: 100%;
+    left: 0;
+  }
 }
 </style>

@@ -1,8 +1,9 @@
 <script setup>
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
 
 const router = useRouter();
+const route = useRoute();
 
 onMounted(() => {
   isVisible.value = false;
@@ -19,6 +20,13 @@ const handleClick = (route) => {
 };
 
 const isVisible = ref(false);
+
+const checkFocusedLink = (link) => {
+  const isOnRoute = [link].includes(route.path);
+  if (isOnRoute) {
+    return true;
+  }
+};
 
 const toggleParagraph = () => {
   isVisible.value = !isVisible.value;
@@ -79,9 +87,40 @@ const toggleParagraph = () => {
         </a>
       </div>
       <div class="xl:flex flex-row items-center gap-[84px] hidden">
-        <div class="nav-list" @click="handleClick('/about')">A propos</div>
-        <div class="nav-list" @click="handleClick('/pricing')">Tarifs</div>
-        <div class="nav-list" @click="handleClick('/faq')">FAQ</div>
+        <div
+          :class="
+            !checkFocusedLink('/') ? 'nav-list' : 'text-primary font-bold'
+          "
+          @click="handleClick('/')"
+        >
+          Accueil
+        </div>
+        <div
+          :class="
+            !checkFocusedLink('/about') ? 'nav-list' : 'text-primary font-bold'
+          "
+          @click="handleClick('/about')"
+        >
+          A propos
+        </div>
+        <div
+          :class="
+            !checkFocusedLink('/pricing')
+              ? 'nav-list'
+              : 'text-primary font-bold'
+          "
+          @click="handleClick('/pricing')"
+        >
+          Tarifs
+        </div>
+        <div
+          :class="
+            !checkFocusedLink('/faq') ? 'nav-list' : 'text-primary font-bold'
+          "
+          @click="handleClick('/faq')"
+        >
+          FAQ
+        </div>
       </div>
       <div class="flex flex-row items-center gap-6">
         <button
@@ -118,13 +157,13 @@ const toggleParagraph = () => {
       </div>
       <!-- <div></div> -->
     </div>
-    <div>
+    <div style="margin-bottom: 25px">
       <transition appear name="fade-page" mode="out-in">
         <div v-if="isVisible" class="">
-          <div
-            class="nav-liste py-4 text-white"
-            @click="handleClick('/about')"
-          >
+          <div class="nav-liste py-4 text-white" @click="handleClick('/')">
+            Accueil
+          </div>
+          <div class="nav-liste py-4 text-white" @click="handleClick('/about')">
             A propos
           </div>
           <div
@@ -133,10 +172,7 @@ const toggleParagraph = () => {
           >
             Tarifs
           </div>
-          <div
-            class="nav-liste py-4 text-white"
-            @click="handleClick('/faq')"
-          >
+          <div class="nav-liste py-4 text-white" @click="handleClick('/faq')">
             FAQ
           </div>
         </div>
@@ -146,7 +182,7 @@ const toggleParagraph = () => {
 </template>
 
 <style lang="scss" scoped>
-.nav-liste{
+.nav-liste {
   background-color: #5242ff;
   font-weight: bold;
   cursor: pointer;
@@ -154,6 +190,7 @@ const toggleParagraph = () => {
 .nav-list {
   // color: var(--color-bgBlack);
   cursor: pointer;
+  font-weight: 600;
   &:hover {
     color: var(--color-primaryScale);
   }
