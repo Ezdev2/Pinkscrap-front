@@ -79,7 +79,6 @@ const toggleParagraph = () => {
         </a>
       </div>
       <div class="xl:flex flex-row items-center gap-[84px] hidden">
-        <div class="nav-list" @click="handleClick('/')">Accueil</div>
         <div class="nav-list" @click="handleClick('/about')">A propos</div>
         <div class="nav-list" @click="handleClick('/pricing')">Tarifs</div>
         <div class="nav-list" @click="handleClick('/faq')">FAQ</div>
@@ -122,12 +121,6 @@ const toggleParagraph = () => {
     <div>
       <transition appear name="fade-page" mode="out-in">
         <div v-if="isVisible" class="">
-          <div
-            class="nav-liste py-4 text-white"
-            @click="handleClick('/')"
-          >
-            Accueil
-          </div>
           <div
             class="nav-liste py-4 text-white"
             @click="handleClick('/about')"

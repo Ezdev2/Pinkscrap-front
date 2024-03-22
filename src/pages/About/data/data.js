@@ -3,7 +3,7 @@ export const features = [
         id: 1,
         name: "Selection rapide",
         details: {
-            imageUrl: "src/assets/illustration-features-tab-1.svg",
+            imageUrl: "src/assets/1.png",
             title: "Selection de la catégories, pays et villes",
             description: "La sélection de catégories, de pays et de villes permet aux utilisateurs de préciser leurs critères de recherche pour télécharger des leads B2B pertinents dans le service de téléchargement de leads B2B de la base GMap.",
             link: "/",
@@ -13,7 +13,7 @@ export const features = [
         id: 2,
         name: "Recherche rapide",
         details: {
-            imageUrl: "src/assets/illustration-features-tab-2.svg",
+            imageUrl: "src/assets/2.png",
             title: "Lancement de la recherche",
             description: "Le lancement de la recherche démarre le processus de récupération des leads B2B correspondant aux critères sélectionnés par l'utilisateur dans le service de téléchargement de leads B2B de la base GMap.",
             link: "/",
