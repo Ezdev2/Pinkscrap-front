@@ -102,9 +102,11 @@ button:focus-visible {
     .css-dev-only-do-not-override-b92jn9
   ).ant-select:not(.ant-select-customize-input)
   .ant-select-selector,
-:where(.css-b92jn9).ant-select-single:not(.ant-select-customize-input)
+.ant-select-show-search:where(.css-b92jn9).ant-select:not(
+    .ant-select-customize-input
+  )
   .ant-select-selector {
-  height: 43px;
+  height: 43px !important;
 }
 :where(.css-dev-only-do-not-override-b92jn9).ant-select
   .ant-select-selection-item {
