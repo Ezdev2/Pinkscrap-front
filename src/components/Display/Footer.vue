@@ -35,13 +35,25 @@ const socialLink = [
     link: "#",
   },
 ];
+
+import { ref, onMounted } from "vue";
+
+const currentYear = ref(new Date().getFullYear());
+
+onMounted(() => {
+  // Mettre à jour l'année toutes les secondes
+  setInterval(() => {
+    currentYear.value = new Date().getFullYear();
+  }, 1000);
+});
+
 </script>
 
 <template>
   <div class="footer">
     <div class="flex flex-col gap-[24px]">
       <img src="@/assets/logo.svg" alt="details" />
-      <p class="text-white">© Copyright 2024</p>
+      <p class="text-white">© Copyright {{ currentYear }}</p>
     </div>
     <div class="flex flex-col items-start gap-[24px]">
       <p class="footer__title">Menu</p>

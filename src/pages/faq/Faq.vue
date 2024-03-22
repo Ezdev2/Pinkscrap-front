@@ -176,7 +176,7 @@ const toggleAccordion = (index) => {
     width: auto;
   }
   .container {
-    padding: 20px;
+    padding: 0 20px;
   }
 }
 </style>

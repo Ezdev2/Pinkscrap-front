@@ -119,19 +119,13 @@ const toggleParagraph = () => {
       </div>
       <!-- <div></div> -->
     </div>
-    <div>
+    <div style="margin-bottom: 25px;">
       <transition appear name="fade-page" mode="out-in">
         <div v-if="isVisible" class="">
-          <div
-            class="nav-liste py-4 text-white"
-            @click="handleClick('/')"
-          >
+          <div class="nav-liste py-4 text-white" @click="handleClick('/')">
             Accueil
           </div>
-          <div
-            class="nav-liste py-4 text-white"
-            @click="handleClick('/about')"
-          >
+          <div class="nav-liste py-4 text-white" @click="handleClick('/about')">
             A propos
           </div>
           <div
@@ -140,10 +134,7 @@ const toggleParagraph = () => {
           >
             Tarifs
           </div>
-          <div
-            class="nav-liste py-4 text-white"
-            @click="handleClick('/faq')"
-          >
+          <div class="nav-liste py-4 text-white" @click="handleClick('/faq')">
             FAQ
           </div>
         </div>
@@ -153,7 +144,7 @@ const toggleParagraph = () => {
 </template>
 
 <style lang="scss" scoped>
-.nav-liste{
+.nav-liste {
   background-color: #5242ff;
   font-weight: bold;
   cursor: pointer;
