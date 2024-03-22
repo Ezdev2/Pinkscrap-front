@@ -17,7 +17,7 @@ AOS.init({
 <template>
   <div class="home flex flex-col items-center gap-[34px] md:gap-[122px]">
     <HeaderSection />
-    <TableSection />
+    <TableSection data-aos="zoom-in" />
     <Description data-aos="fade-up"/>
     <DetailSection data-aos="fade-up"  />
     <Demo data-aos="fade-up" />
