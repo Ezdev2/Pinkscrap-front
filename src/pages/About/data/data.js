@@ -1,9 +1,13 @@
+import tab1 from '../../../assets/1.png';
+import tab2 from '../../../assets/2.png';
+import tab3 from '../../../assets/3.png';
+
 export const features = [
     {
         id: 1,
         name: "Selection rapide",
         details: {
-            imageUrl: "/assets/1.png",
+            imageUrl: tab1,
             title: "Selection de la catégories, pays et villes",
             description: "La sélection de catégories, de pays et de villes permet aux utilisateurs de préciser leurs critères de recherche pour télécharger des leads B2B pertinents dans le service de téléchargement de leads B2B de la base GMap.",
             link: "/",
@@ -13,7 +17,7 @@ export const features = [
         id: 2,
         name: "Recherche rapide",
         details: {
-            imageUrl: "/assets/2.png",
+            imageUrl: tab2,
             title: "Lancement de la recherche",
             description: "Le lancement de la recherche démarre le processus de récupération des leads B2B correspondant aux critères sélectionnés par l'utilisateur dans le service de téléchargement de leads B2B de la base GMap.",
             link: "/",
@@ -23,7 +27,7 @@ export const features = [
         id: 3,
         name: "Téléchargement en un click",
         details: {
-            imageUrl: "/assets/3.png",
+            imageUrl: tab3,
             title: "Télécherger facilement la liste",
             description: "Téléchargez facilement la liste sous forme d'un tableau au format CSV pour une utilisation immédiate dans le service de téléchargement de leads B2B de la base GMap.",
             link: "/",
