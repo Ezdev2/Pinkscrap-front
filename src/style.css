@@ -101,12 +101,13 @@ button:focus-visible {
 .ant-select-show-search:where(
     .css-dev-only-do-not-override-b92jn9
   ).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector,
+:where(.css-b92jn9).ant-select-single:not(.ant-select-customize-input)
   .ant-select-selector {
   height: 43px;
 }
 :where(.css-dev-only-do-not-override-b92jn9).ant-select
-  .ant-select-selection-item,
-.ant-select .ant-select-selection-item {
+  .ant-select-selection-item {
   flex: 1;
   font-weight: normal;
   overflow: hidden;
@@ -130,6 +131,11 @@ button:focus-visible {
 .ant-select-show-search:where(
     .css-dev-only-do-not-override-b92jn9
   ).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector
+  input,
+.ant-select-show-search:where(.css-b92jn9).ant-select:not(
+    .ant-select-customize-input
+  )
   .ant-select-selector
   input {
   margin: 5px;
