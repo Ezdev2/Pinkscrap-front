@@ -4,7 +4,7 @@ import ASelect from 'ant-design-vue/lib/select';
 
 const emit = defineEmits(["onChange"]);
 
-defineProps({
+const props = defineProps({
   options: {
     type: Array,
     default: [
@@ -31,6 +31,9 @@ defineProps({
   disabled: {
     type: Boolean,
     default: false
+  },
+  value: {
+    type: String,
   }
 });
 
@@ -47,13 +50,13 @@ const handleFocus = () => {
 const filterOption = (input, option) => {
   return option.value.toLowerCase().indexOf(input.toLowerCase()) >= 0;
 };
-const value = ref(undefined);
+const defaultValue = props.value !== '' ? props.value : 'Sélectionner';
 </script>
 <template>
   <div class="flex flex-col items-start">
     <p class="font-bold text-lg">{{ label }}</p>
     <a-select
-      v-model:value="value"
+      v-model:value="defaultValue"
       :disabled="disabled"
       show-search
       :placeholder="placeholder"

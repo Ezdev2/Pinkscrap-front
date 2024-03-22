@@ -117,6 +117,7 @@ button:focus-visible {
   text-overflow: ellipsis;
   text-align: start;
   font-size: medium;
+  color: #808192;
   margin: 5px;
 }
 :where(.css-b92jn9).ant-select-single
@@ -124,6 +125,7 @@ button:focus-visible {
   .ant-select-selection-item,
 :where(.css-b92jn9).ant-select .ant-select-selection-item {
   margin: 5px;
+  color: #808192;
 }
 :where(.css-dev-only-do-not-override-b92jn9).ant-select
   .ant-select-selection-placeholder,

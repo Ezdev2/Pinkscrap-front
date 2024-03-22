@@ -4,17 +4,30 @@ import Select from "@/components/Common/Select.vue";
 import { ref, watch, onMounted } from "vue";
 import HomeService from "../../../service/homeService";
 
-const scrapResult = ref([]);
+let initialScrapResult = localStorage.getItem("scrapResult");
+let initialCategoryValue = localStorage.getItem("categoryValue");
+let initialCityValue = localStorage.getItem("cityValue");
+let initialCountryValue = localStorage.getItem("countryValue");
+let initialCountryCode = localStorage.getItem("countryCode");
+
+const scrapResult = ref(
+  initialScrapResult ? JSON.parse(initialScrapResult) : []
+);
+// const scrapResult = ref([]);
 const loading = ref(false);
 const categoryOptions = ref([]);
 const cityOptions = ref([]);
 const countryOptions = ref([]);
 
 const countryMap = {};
-let categoryValue = ref("");
-let cityValue = ref("");
-let countryValue = "";
-let countryCode = ref("");
+let categoryValue = ref(
+  initialCategoryValue ? JSON.parse(initialCategoryValue) : ""
+);
+let cityValue = ref(initialCityValue ? JSON.parse(initialCityValue) : "");
+let countryValue = ref(
+  initialCountryValue ? JSON.parse(initialCountryValue) : ""
+);
+let countryCode = ref(initialCountryCode ? JSON.parse(initialCountryCode) : "");
 
 watch(
   () => loading.value,
@@ -33,6 +46,7 @@ watch(
 watch(
   () => cityValue.value,
   (v) => {
+    cityValue.value = v;
     console.log("city", v);
   },
   { immediate: true, deep: true }
@@ -87,7 +101,6 @@ const fetchCountryList = async () => {
       label: country.name.common,
       code: country.cca2,
     }));
-    console.log("data country === ", dataRes);
     return dataRes;
   } catch (error) {
     console.error("Erreur de récupération de la liste des pays :", error);
@@ -169,9 +182,11 @@ const handleCityValueChange = (updatedCityValue) => {
 };
 
 const handleCountryValueChange = (updatedCountryValue) => {
-  countryValue = updatedCountryValue;
-  countryCode.value = countryMap[countryValue];
-  console.log("Nom du pays :", countryValue);
+  countryValue.value = updatedCountryValue;
+  countryCode.value = countryMap[countryValue.value];
+  cityValue.value = "";
+
+  console.log("Nom du pays :", countryValue.value);
   console.log("Code pays :", countryCode.value); // A utiliser si besoin pour l'affichage des drapeaux des pays
 };
 
@@ -187,9 +202,20 @@ const fetchData = async () => {
     const response = await HomeService.getList({
       category: categoryValue.value,
       city: cityValue.value,
-      country: countryValue,
+      country: countryValue.value,
     });
     scrapResult.value = response;
+    // Sauvegarder dans le local storage
+    localStorage.setItem("scrapResult", JSON.stringify(scrapResult.value));
+    if (scrapResult.value.length) {
+      localStorage.setItem(
+        "categoryValue",
+        JSON.stringify(categoryValue.value)
+      );
+      localStorage.setItem("cityValue", JSON.stringify(cityValue.value));
+      localStorage.setItem("countryValue", JSON.stringify(countryValue.value));
+      localStorage.setItem("countryCode", JSON.stringify(countryCode.value));
+    }
   } catch (error) {
     console.error("Erreur de récupération data :", error);
     scrapResult.value = [];
@@ -207,13 +233,15 @@ const fetchData = async () => {
     >
       <Select
         :options="categoryOptions"
-        label="Catégories"
         :placeholder="'Sélectionnez une catégorie'"
+        :value="categoryValue !== '' ? categoryValue : 'Ex: Restaurant...'"
+        label="Catégories"
         @input="handleCategorySearch($event.target.value)"
         @on-change="handleCategoryValueChange"
       />
       <Select
         :options="countryOptions"
+        :value="countryValue"
         label="Pays"
         :placeholder="countryOptions[0]?.label"
         @on-change="handleCountryValueChange"
@@ -222,6 +250,7 @@ const fetchData = async () => {
         :disabled="countryCode !== '' ? false : true"
         :options="cityOptions"
         label="Villes"
+        :value="cityValue !== '' ? cityValue : 'Tapez le nom d\'une ville'"
         :placeholder="'Sélectionnez une ville'"
         @input="handleCitySearch"
         @on-change="handleCityValueChange"
@@ -262,7 +291,9 @@ const fetchData = async () => {
         v-else-if="!loading && scrapResult.length"
         class="flex flex-col gap-[42px] items-center w-full"
       >
-        <div class="flex flex-col gap-[42px] md:items-center w-full overflow-x-scroll">
+        <div
+          class="table-section flex flex-col gap-[42px] md:items-center w-full overflow-x-scroll"
+        >
           <table class="table-container w-full">
             <thead>
               <tr>
@@ -386,7 +417,11 @@ td {
 th {
   // background-color: #f2f2f2;
 }
-
+@media (min-width: 1136px) {
+  .table-section {
+    scrollbar-width: none;
+  }
+}
 .table-container {
   position: relative;
 }
