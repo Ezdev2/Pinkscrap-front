@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import Title from "@/components/Common/Title.vue";
+</script>
 
 <template>
   <div class="pricing">
@@ -34,8 +36,9 @@
             </li>
           </ul>
         </div>
-        <div class="page-hero-content mx-auto max-w-[768px] text-center">
-          <h1 class="mb-5 mt-8">Pinwheel Pricing</h1>
+        <div class="page-hero-content mx-auto max-w-[768px] text-center flex flex-col gap-[24px]">
+          <Title type="h1" label="Pinwheel Pricing"></Title>
+
           <p>
             Donec sollicitudin molestie malesda. Donec sollitudin molestie
             malesuada. Mauris <br />
@@ -553,6 +556,10 @@
 @media only screen and (max-width: 464px) {
   .lg\:col-4 {
     width: 100%;
+  }
+  .page-hero,
+  .row{
+    padding: 20px;
   }
 }
 </style>
