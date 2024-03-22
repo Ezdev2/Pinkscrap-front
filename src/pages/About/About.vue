@@ -21,7 +21,7 @@ AOS.init({
 </script>
 
 <template>
-  <div class="w-full overflow-x-hidden flex flex-col items-center gap-[80px]">
+  <div class="w-full overflow-x-hidden flex flex-col items-center gap-[80px] pricing">
     <div class="flex flex-col items-center">
       <!-- floating assets -->
       <img
@@ -313,6 +313,15 @@ AOS.init({
 </template>
 
 <style lang="scss" scoped>
+.pricing {
+  display: flex;
+  position: relative;
+  margin: none;
+  flex-direction: column;
+  align-items: center;
+  // gap: 122px;
+  align-self: stretch;
+}
 .faq-section {
   background: #fff !important;
   padding: 16px;
