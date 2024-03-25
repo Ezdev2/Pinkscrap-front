@@ -54,7 +54,44 @@ watch(
 
 onMounted(() => {
   loadCountryOptions();
+  //Ajout de fonction d'écoute des évènements de traitement du serveur
+  listenSeeEvents();
 });
+
+//Affichage des messages de traitement venant du serveur
+const displayMessage = (message) => {
+  //Voir l'id de cette console créé dans un <div> de template en bas
+  const consoleContainer = document.getElementById('console');
+  consoleContainer.innerHTML = '';
+    
+  // Nouveau message du serveur
+  const messageElement = document.createElement('p');
+  messageElement.textContent = message;
+  messageElement.style.padding = '10px';
+  messageElement.style.background = '#ffffff';
+  messageElement.style.marginBottom = '5px';
+  messageElement.style.borderRadius = '4px';
+
+  consoleContainer.appendChild(messageElement);
+}
+
+//Ecoute des évènements de traitement du serveur
+const listenSeeEvents = () =>{
+  const sseEndpoint = 'https://pinkscrap-back.onrender.com/events'; 
+  const sseSource = new EventSource(sseEndpoint);
+
+  sseSource.onmessage = function(event) {
+    const eventData = JSON.parse(event.data);
+    if (eventData.message !== null) {
+      displayMessage(`${eventData.message}`);
+    }
+  };
+
+  sseSource.onerror = function(error) {
+    console.error('Erreur SSE :', error);
+    sseSource.close(); // Fermeture de la connexion SSE en cas d'erreur
+  };
+}
 
 const getSocialname = (part) => {
   return part.split(": ")[1];
@@ -278,12 +315,18 @@ const fetchData = async () => {
         <p class="font-bold text-start">
           {{ categoryValue + " / " + countryValue + " / " + cityValue }}
         </p>
+
         <!-- <div class="flex gap-[12px]">
           <img src="@/assets/icons/filter.svg" alt="details" />
           <img src="@/assets/icons/plus.svg" alt="details" />
           <p class="text-start">Filtrer</p>
         </div> -->
       </div>
+
+      <!--Ajout de console d'affichage en temps réel du traitement dans le serveur-->
+      <div id="console" style="margin: 0 auto;">
+      </div>
+
       <div v-if="loading">
         <img class="m-auto" src="@/assets/loading.svg" alt="loading" />
       </div>
