@@ -1,6 +1,14 @@
 <script setup>
 import Title from "@/components/Common/Title.vue";
 import Button from "@/components/Common/Button.vue";
+
+//Ajout import useRouter
+import { useRouter } from "vue-router";
+const router = useRouter();
+const tryForFree = async() => {
+  router.push("/login");
+};
+
 </script>
 
 <template>
@@ -16,7 +24,8 @@ import Button from "@/components/Common/Button.vue";
           Choisissez parmi les 4000+ catégories de Google Maps, et ciblez
           précisément par pays, région, département ou ville dans 195 pays.
         </p>
-        <Button class="w-full" type="secondary" label="Essayez gratuitement" />
+        <!--Ecoute du bouton d'essai gratuit-->
+        <Button class="w-full" type="secondary" label="Essayez gratuitement" @click="tryForFree"/>
       </div>
       <div>
         <img src="@/assets/desc.png" alt="description" />
