@@ -18,9 +18,15 @@ axios.defaults.timeout = MAX_TIMEOUT;
 // });
 
 export class Http {
-    static async get(url, params) {
+    //Mise à jour de la fonction get
+    static async get(url, params, accessToken = '') {
         try {
-            const { data } = await axios.get(url, { params });
+            const { data } = await axios.get(url, { 
+                params , 
+                headers: {
+                  'Authorization': `Bearer ${accessToken}`,
+                }
+              });
             return data;
         } catch (e) {
             console.error(e);
@@ -28,13 +34,24 @@ export class Http {
         }
     }
 
-    static async post(url, data) {
+    //Mise à jour de la fonction post
+    static async post(url, data = {}, accessToken = '') {
         try {
-            const { data: responseData, status } = await axios.post(url, data);
+            const { data: responseData, status } = await axios.post(url, data, {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${accessToken}`,
+                }
+              });
             return { data: responseData, status };
         } catch (e) {
-            console.error(e);
-            throw e;
+            if(e.response){
+                var errorMessage = e.response.data.message;
+                var status = e.response.status;
+                return { errorMessage, status};
+            } else {
+                return { status };
+            }
         }
     }
 
