@@ -1,6 +1,7 @@
 <script setup>
 import Button from "@/components/Common/Button.vue";
 import Select from "@/components/Common/Select.vue";
+import axios from "axios";
 import { ref, watch, onMounted } from "vue";
 import HomeService from "../../../service/homeService";
 
@@ -171,6 +172,7 @@ const loadCountryOptions = async () => {
   });
 };
 
+/*
 // Suggestions d'autocomplétion "Catégories"
 const fetchCategoriesAutocompleteSuggestions = async (searchTerm) => {
   try {
@@ -184,6 +186,29 @@ const fetchCategoriesAutocompleteSuggestions = async (searchTerm) => {
       "Erreur de récupération des suggestions d'autocomplétion :",
       error
     );
+    return [];
+  }
+};
+*/
+
+const fetchCategoriesAutocompleteSuggestions = async (searchTerm) => {
+  try {
+    // Données de la requête
+    const requestData = {
+      url: HomeService.getMapTypes(),
+      data: {
+        locale: "fr",
+        search_term: searchTerm,
+      }
+    };
+
+    // Envoyer la requête au serveur proxy
+    const response = await axios.post(HomeService.getProxyURL(), requestData);
+
+    return response.data;
+  } catch (error) {
+    // Gérer les erreurs
+    console.error("Erreur de récupération des suggestions d'autocomplétion :", error);
     return [];
   }
 };
@@ -207,6 +232,7 @@ const handleCategoryValueChange = (updatedCategoryValue) => {
   categoryValue.value = updatedCategoryValue;
 };
 
+/*
 // Suggestions d'autocomplétion "Ville"
 const fetchCityAutocompleteSuggestions = async () => {
   try {
@@ -220,6 +246,29 @@ const fetchCityAutocompleteSuggestions = async () => {
       "Erreur de récupération des suggestions d'autocomplétion :",
       error
     );
+    return [];
+  }
+};
+*/
+
+const fetchCityAutocompleteSuggestions = async () => {
+  try {
+    // Données de la requête
+    const requestData = {
+      url: HomeService.getMapLocations(),
+      data: {
+        country_code: countryCode.value,
+        type: "city",
+      }
+    };
+
+    // Envoyer la requête au serveur proxy
+    const response = await axios.post(HomeService.getProxyURL(), requestData);
+
+    return response.data;
+  } catch (error) {
+    // Gérer les erreurs
+    console.error("Erreur de récupération des suggestions d'autocomplétion :", error);
     return [];
   }
 };
