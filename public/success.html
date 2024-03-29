@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Merci pour votre souscription!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <div class="product">
+      <img src="/src/assets/logo.svg" alt="Pinkscrap subscription success" />
+      <div class="description">
+        <h3>Merci d'avoir souscrit à Pinkscrap! Nous sommes ravis de vous accueillir parmi nos membres.</h3>
+      </div>
+    </div>
+    <form action="https://pinkscrap.netlify.app" method="">
+      <button type="submit" id="homepage-button">Revenir à la page d'accueil</button>
+    </form>
+  </section>
+  <script>
+    // Récupérer l'ID du client
+    const urlParams = new URLSearchParams(window.location.search);
+    const user_id = urlParams.get('id_');
+
+    window.history.replaceState({}, document.title, window.location.pathname);
+
+    fetch('https://pinkscrap-back.onrender.com/api/v1/client-token?id=' + user_id)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(response => {
+        document.cookie = 'token=' + response.token;
+      })
+      .catch(error => {
+        console.error('Erreur :', error);
+      });
+</script>
+</body>
+</html>

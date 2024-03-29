@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Souscription à Pinkscrap</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="product">
+        <img src="/src/assets/logo.svg" alt="Pinkscrap subscription" />
+        <div class="description">
+          <h3>Vous pouvez consulter votre abonnement à Pinkscrap Service ou vous désabonner à tout moment.</h3>
+        </div>
+      </div>
+      <form action="https://billing.stripe.com/p/login/test_3csaG462Qd7c22s9AA" method="GET">
+        <button type="submit" id="checkout-button">Gérer votre abonnement</button>
+      </form>
+    </section>
+  </body>
+</html>
