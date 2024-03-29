@@ -1,6 +1,14 @@
 <script setup>
 import Title from "@/components/Common/Title.vue";
 import Button from "@/components/Common/Button.vue";
+
+//Ajout import useRouter
+import { useRouter } from "vue-router";
+const router = useRouter();
+const tryForFree = async() => {
+  router.push("/login");
+};
+
 </script>
 
 <template>
@@ -12,7 +20,8 @@ import Button from "@/components/Common/Button.vue";
           Essayez gratuitement pendant 7 jours et récupérez jusqu'à 100 leads.
         </p>
       </div>
-      <Button type="primary" label="Essayez gratuitement" />
+      <!--Ecoute du bouton d'essai gratuit-->
+      <Button type="primary" label="Essayez gratuitement" @click="tryForFree"/>
     </div>
   </div>
 </template>
