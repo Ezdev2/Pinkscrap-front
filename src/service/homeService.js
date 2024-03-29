@@ -5,19 +5,28 @@ export default class HomeService {
     static async getList(params) {
         return await Http.get("https://pinkscrap-back.onrender.com/v1/pink-maps", params);
     }
-    static async getMapTypes(params) {
-        return await Http.get("https://scrap.io/api/autocomplete/gmap-types", params);
+
+    //Ajout de proxy endpoint
+    static getProxyURL() {
+        return "https://pinkscrap-back.onrender.com/proxy";
     }
-    static async getMapLocations(params) {
-        return await Http.get("https://scrap.io/api/autocomplete/gmap-locations", params);
+
+    static getMapTypes() {
+        return "https://scrap.io/api/autocomplete/gmap-types";
     }
+
+    static getMapLocations() {
+        return "https://scrap.io/api/autocomplete/gmap-locations";
+    }
+
     static async getCountries(params) {
         return await Http.get("https://restcountries.com/v3.1/all", params);
     }
-    //Modification de la fonction d'appel de SSE endpoint 
+
     static getSeeEvents() {
         return "https://pinkscrap-back.onrender.com/api/events";
     }
+
     //Ajout de Stripe Subscription endpoint
     static async getSubscription(params, accessToken) {
         return await Http.get("https://pinkscrap-back.onrender.com/api/check-subscription", params, accessToken);
