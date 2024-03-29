@@ -20,6 +20,7 @@ const cityOptions = ref([]);
 const countryOptions = ref([]);
 
 const countryMap = {};
+let token = null;
 let categoryValue = ref(
   initialCategoryValue ? JSON.parse(initialCategoryValue) : ""
 );
@@ -53,31 +54,30 @@ watch(
 );
 
 onMounted(() => {
+ 
+  token = getCookie('token');
   loadCountryOptions();
-  //Ajout de fonction d'écoute des évènements de traitement du serveur
   listenSeeEvents();
+
 });
 
 //Affichage des messages de traitement venant du serveur
 const displayMessage = (message) => {
-  //Voir l'id de cette console créé dans un <div> de template en bas
   const consoleContainer = document.getElementById('console');
   consoleContainer.innerHTML = '';
     
-  // Nouveau message du serveur
   const messageElement = document.createElement('p');
   messageElement.textContent = message;
   messageElement.style.padding = '10px';
   messageElement.style.background = '#ffffff';
   messageElement.style.marginBottom = '5px';
-  messageElement.style.borderRadius = '4px';
 
   consoleContainer.appendChild(messageElement);
 }
 
 //Ecoute des évènements de traitement du serveur
 const listenSeeEvents = () =>{
-  const sseEndpoint = 'https://pinkscrap-back.onrender.com/events'; 
+  const sseEndpoint = HomeService.getSeeEvents(); 
   const sseSource = new EventSource(sseEndpoint);
 
   sseSource.onmessage = function(event) {
@@ -97,18 +97,37 @@ const getSocialname = (part) => {
   return part.split(": ")[1];
 };
 
-// Télécharger CSV
-const downloadCSV = () => {
-  const csvContent = convertToCSV(scrapResult.value);
-  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-  const url = window.URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.setAttribute("href", url);
-  link.setAttribute("download", "contacts.csv");
-  link.style.visibility = "hidden";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+//Ajout de stockage de session pour la redirection après authentification
+const redirectToLoginPage = () => {
+    sessionStorage.setItem('redirectUrl', window.location.href); // Enregistrer l'URL de la page actuelle
+    window.location.href = '/login'; 
+}
+
+// Récupère le cookie correspondant à l'ID spécifié
+function getCookie(id) {
+   let value = document.cookie.match('(^|;)?' + id + '=([^;]*)(;|$)');
+   return value ? unescape(value[2]) : null;
+}
+
+// Télécharger CSV (Ajout d'authentification par accessToken)
+const downloadCSV = async() => {
+  const accessToken = token;
+  const { status } = await HomeService.postTokenCheck(accessToken);
+  if (status === 200) {
+    console.log('Authentification réussie.');
+    const csvContent = convertToCSV(scrapResult.value);
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "contacts.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else {
+    redirectToLoginPage();
+  }
 };
 
 const convertToCSV = (scrapResult) => {
@@ -322,11 +341,11 @@ const fetchData = async () => {
           <p class="text-start">Filtrer</p>
         </div> -->
       </div>
-
+      
       <!--Ajout de console d'affichage en temps réel du traitement dans le serveur-->
       <div id="console" style="margin: 0 auto;">
       </div>
-
+      
       <div v-if="loading">
         <img class="m-auto" src="@/assets/loading.svg" alt="loading" />
       </div>
