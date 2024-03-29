@@ -1,6 +1,14 @@
 <script setup>
 import Title from "@/components/Common/Title.vue";
 import Button from "@/components/Common/Button.vue";
+
+//Ajout import useRouter
+import { useRouter } from "vue-router";
+const router = useRouter();
+const tryForFree = async() => {
+  router.push("/login");
+};
+
 </script>
 
 <template>
@@ -17,26 +25,26 @@ import Button from "@/components/Common/Button.vue";
           <Title type="h2" class="text-start" label="Filtrez avec précision" />
           <p class="text-white text-start">
             Vous souhaitez récupérer uniquement les entreprises qui ont un email
-            et pas de page Facebook ? Celles qui ont une note entre 3,9 et 4,4
-            sur Google Maps et moins de 15 photos ?C'est possible grâce à nos
+            et pas de page Facebook ? C'est possible grâce à nos
             filtres de recherche.
           </p>
           <div class="md:hidden">
           <img src="@/assets/details-1.png" alt="details" />
         </div>
-          <Button type="primary" label="Essayez gratuitement" />
+          <!--Ecoute du bouton d'essai gratuit-->
+          <Button type="primary" label="Essayez gratuitement" @click="tryForFree"/>
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-[48px] max-w-[900px] items-center justify-end">
         <div class="flex flex-col gap-[24px] md:w-[40%]">
-          <Title type="h2" class="text-start" label="Filtrez avec précision" />
+          <Title type="h2" class="text-start" label="Des filtres de plus!" />
           <p class="text-white text-start">
-            Vous souhaitez récupérer uniquement les entreprises qui ont un email
-            et pas de page Facebook ? Celles qui ont une note entre 3,9 et 4,4
-            sur Google Maps et moins de 15 photos ?C'est possible grâce à nos
-            filtres de recherche.
+            Encore des filtres pour les entreprises qui ont une note entre 3,9 et 4,4
+            sur Google Maps et moins de 15 photos? C'est aussi possible grâce à nos
+            larges éventails de filtres de recherche.
           </p>
-          <Button type="primary" label="Essayez gratuitement" />
+          <!--Ecoute du bouton d'essai gratuit-->
+          <Button type="primary" label="Essayez gratuitement" @click="tryForFree"/>
         </div>
         <div class="md:w-[40%]">
           <img src="@/assets/details-2.png" alt="details" />
