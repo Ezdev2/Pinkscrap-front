@@ -105,7 +105,7 @@ const router = useRouter({
   routes: [
     { path: '/login', component: Login } 
   ]
-})
+});
 
 const Login = () => {
   router.push("/login");
