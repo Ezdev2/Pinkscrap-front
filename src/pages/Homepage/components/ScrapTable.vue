@@ -108,7 +108,7 @@ const router = useRouter({
 });
 
 const Login = () => {
-  router.push("/login");
+  window.location.href("/login");
 };
 
 // Récupère le cookie correspondant à l'ID spécifié
