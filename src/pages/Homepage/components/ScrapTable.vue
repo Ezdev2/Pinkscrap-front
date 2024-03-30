@@ -101,8 +101,8 @@ const getSocialname = (part) => {
 };
 
 const router = useRouter();
-const HomeBtn = () => {
-  router.push("/");
+const Login = () => {
+  router.push("/login");
 };
 
 // Récupère le cookie correspondant à l'ID spécifié
@@ -128,7 +128,7 @@ const downloadCSV = async() => {
     link.click();
     document.body.removeChild(link);
   } else {
-    HomeBtn();
+    Login();
   }
 };
 
