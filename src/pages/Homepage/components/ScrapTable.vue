@@ -2,6 +2,8 @@
 import Button from "@/components/Common/Button.vue";
 import Select from "@/components/Common/Select.vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
+
 import { ref, watch, onMounted } from "vue";
 import HomeService from "../../../service/homeService";
 
@@ -98,11 +100,10 @@ const getSocialname = (part) => {
   return part.split(": ")[1];
 };
 
-//Ajout de stockage de session pour la redirection après authentification
-const redirectToLoginPage = () => {
-    sessionStorage.setItem('redirectUrl', window.location.href); // Enregistrer l'URL de la page actuelle
-    window.location.href = '/login'; 
-}
+const router = useRouter();
+const HomeBtn = () => {
+  router.push("/");
+};
 
 // Récupère le cookie correspondant à l'ID spécifié
 function getCookie(id) {
@@ -127,7 +128,7 @@ const downloadCSV = async() => {
     link.click();
     document.body.removeChild(link);
   } else {
-    redirectToLoginPage();
+    HomeBtn();
   }
 };
 
