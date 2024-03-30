@@ -34,13 +34,13 @@ const routes = [
     },
     {
         path: '/faq',
-        name: 'faq',
+        name: 'Faq',
         component: faq
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory('/'),
+    history: createWebHistory(process.env.BASE_URL),
     // history: createWebHistory(""),
     routes,
     scrollBehavior: (to) => {
