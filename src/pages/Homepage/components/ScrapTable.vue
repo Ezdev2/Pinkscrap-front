@@ -3,7 +3,8 @@ import Button from "@/components/Common/Button.vue";
 import Select from "@/components/Common/Select.vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
-
+import Login from '@/pages/Authentication/Login.vue';
+  
 import { ref, watch, onMounted } from "vue";
 import HomeService from "../../../service/homeService";
 
@@ -100,7 +101,12 @@ const getSocialname = (part) => {
   return part.split(": ")[1];
 };
 
-const router = useRouter();
+const router = useRouter({
+  routes: [
+    { path: '/login', component: Login } 
+  ]
+})
+
 const Login = () => {
   router.push("/login");
 };
