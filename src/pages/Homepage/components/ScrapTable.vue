@@ -102,7 +102,7 @@ const getSocialname = (part) => {
 
 const router = useRouter();
 const Login = () => {
-  route.push("/login");
+  router.push("/login");
 };
 
 // Récupère le cookie correspondant à l'ID spécifié
