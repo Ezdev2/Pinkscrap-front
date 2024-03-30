@@ -108,7 +108,6 @@ const router = useRouter({
 });
 
 const Login = () => {
-  window.location.reload();
   route.push("/login");
 };
 
