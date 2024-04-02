@@ -231,6 +231,7 @@ const handleCategorySearch = async (searchTerm) => {
 
 const handleCategoryValueChange = (updatedCategoryValue) => {
   categoryValue.value = updatedCategoryValue;
+  console.log(updatedCategoryValue, "updatedCategoryValue")
 };
 
 /*
